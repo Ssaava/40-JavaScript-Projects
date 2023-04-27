@@ -1,0 +1,18 @@
+.projects {
+  margin-top: 100px;
+  h1,
+  h5 {
+    color: rgb(249, 249, 249);
+  }
+  p {
+    color: rgb(222, 222, 222);
+  }
+
+  figure {
+    img {
+      width: 100%;
+      object-fit: cover;
+      height: 80%;
+    }
+  }
+}

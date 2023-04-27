@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --img-color: #62beff;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  max-width: 500px;
+  margin-inline: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px black;
+  padding: 30px;
+}
+.title h2 {
+  font-size: 2.5rem;
+}
+h2,
+p,
+h3 {
+  text-align: center;
+}
+.underline {
+  width: 100px;
+  height: 5px;
+  background-color: var(--img-color);
+  margin-inline: auto;
+  margin-bottom: 40px;
+  margin-top: 10px;
+}
+.img-container {
+  width: 155px;
+  height: 150px;
+  background-color: var(--img-color);
+  border-radius: 50%;
+  margin-inline: auto;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.img-container:before {
+  content: "''";
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  font-size: 34px;
+  color: whitesmoke;
+  position: absolute;
+  border-radius: 50%;
+  left: 5px;
+  top: 20px;
+  background-color: var(--img-color);
+}
+.img-container img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.name {
+  font-size: medium;
+  margin: 10px 0 5px 0;
+}
+.job {
+  font-size: larger;
+  color: var(--img-color);
+  margin-bottom: 10px;
+}
+.btns {
+  width: max-content;
+  margin-inline: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.btns button {
+  background: none;
+  border: none;
+}
+.next-btn {
+  margin-left: 100px;
+}
+button i {
+  font-size: 3rem;
+  cursor: pointer;
+  transition: 0.5s;
+  color: rgb(32, 32, 32);
+}
+button i:hover {
+  color: var(--img-color);
+}
+.random-btn {
+  display: block;
+  margin-inline: auto;
+  padding: 6px 25px;
+  cursor: pointer;
+  background-color: var(--img-color);
+  border: none;
+  border-radius: 5px;
+}
+.random-btn:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: rgb(232, 232, 232);
+}

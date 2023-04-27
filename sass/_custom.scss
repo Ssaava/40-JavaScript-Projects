@@ -1,0 +1,15 @@
+$white: #fff;
+$hover: rgb(255, 157, 173);
+$navbar-light-color: $white;
+$navbar-light-active-color: $white;
+$navbar-light-hover-color: $hover;
+$navbar-light-toggler-border-color: none;
+$success: #47df9c;
+$dark: rgb(21, 21, 21);
+// $navbar-toggler-focus-width: none;
+$focus-ring-width: 0.05rem;
+$navbar-light-icon-color: $white;
+
+// font-size
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";

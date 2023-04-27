@@ -1,0 +1,21 @@
+.techStack {
+  .row {
+    margin: 0;
+
+    div {
+      padding-inline: 0;
+      h2 {
+        font-weight: 700;
+        font-size: clamp(2rem, 5.5vw, 2.5rem);
+        color: rgb(249, 249, 249);
+      }
+      p {
+        color: rgb(222, 222, 222);
+      }
+      @media (max-width: 767.8px) {
+        text-align: center;
+        margin: 10px 0;
+      }
+    }
+  }
+}
