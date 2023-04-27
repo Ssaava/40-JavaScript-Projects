@@ -11938,6 +11938,7 @@ html {
 .about .about-info a {
   text-decoration: none;
   color: rgb(240, 240, 240);
+  width: -moz-fit-content;
   width: fit-content;
   font-size: 0.9rem;
   font-family: "Chakra Petch", sans-serif;
@@ -12030,6 +12031,7 @@ footer form textarea {
   color: rgb(155, 154, 154);
 }
 footer form h5 {
+  width: -moz-fit-content;
   width: fit-content;
   cursor: pointer;
   color: rgb(222, 222, 222);

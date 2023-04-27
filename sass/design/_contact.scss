@@ -19,6 +19,7 @@ footer {
     }
 
     h5 {
+      width: -moz-fit-content;
       width: fit-content;
       cursor: pointer;
       color: rgb(222, 222, 222);
@@ -31,4 +32,6 @@ footer {
       }
     }
   }
+}
+@media (max-width: 576px) {
 }
