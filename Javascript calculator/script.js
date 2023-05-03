@@ -7,9 +7,16 @@ var numbers = "";
 Buttons.addEventListener("click", (e) => {
   let number = e.target.textContent;
   var lastCharactor = numbers.charAt(numbers.length - 1);
-  if (lastCharactor.match(operators)) {
-    console.log("Character matches");
+  if (lastCharactor.match(operators) && number != "=") {
+    console.log(`number is present ${lastCharactor}`);
+    answerSection.value = numbers.replace(lastCharactor, "e");
   }
+  if (number === "=") {
+    answerSection.value = numbers;
+    console.log(lastCharactor);
+    return;
+  }
+
   if (number >= 0 || number === "." || number.match(operators)) {
     if (number === "0" && answerSection.value === "0") {
       answerSection.value = "0";
