@@ -1,0 +1,111 @@
+html {
+  box-sizing: border-box;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+/* styling the container */
+body {
+  height: 100vh;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  position: relative;
+}
+.container {
+  width: 90%;
+  max-width: 20rem;
+  box-shadow: 0 0 10px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  background-color: white;
+}
+.input {
+  width: 100%;
+  height: 5rem;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background-color: red;
+  padding: 60px 0;
+}
+input[type="text"] {
+  width: 100%;
+  background: transparent;
+  height: 100%;
+  outline: none;
+  border: none;
+  text-align: right;
+  font-size: min(15vw, 2.5rem);
+  border-radius: 5px;
+  padding-inline: 20px;
+  font-weight: 900;
+}
+.background {
+  background-color: red;
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+/* designing the buttons section */
+.buttons {
+  padding: 5% 5%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  /* row-gap: 15px; */
+}
+.btn {
+  width: min(15vw, 60px);
+  height: min(15vw, 60px);
+  border-radius: 50%;
+  box-shadow: inset 0 0 40px rgba(38, 38, 38, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-inline: auto;
+  font-weight: 700;
+  font-size: min(7vw, 2.5rem);
+  color: rgb(99, 99, 99);
+}
+/* custom css curve */
+.custom-shape-divider-top-1682349067 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1682349067 svg {
+  position: relative;
+  display: block;
+  width: calc(205% + 1.3px);
+  height: 500px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1682349067 .shape-fill {
+  fill: red;
+}
+/* for small devices */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .custom-shape-divider-top-1682349067 svg {
+    width: calc(300% + 1.3px);
+    height: 500px;
+  }
+}
+@media (max-width: 767px) {
+  .custom-shape-divider-top-1682349067 svg {
+    width: calc(300% + 1.3px);
+    height: 500px;
+  }
+}
