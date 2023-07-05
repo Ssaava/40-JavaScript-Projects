@@ -2,26 +2,45 @@
 
 ## Introduction
 
-    ### Brief description of the purpose and features of the website.
-        The Country Guide website is a comprehensive platform designed to help individuals search for specific country information and retrieve essential details, including the country's general information and its flag. Users can easily search for their desired country using the search bar, and the website will display the relevant information on the page.
+### Brief description of the purpose and features of the website.
 
-        **Key Features:**
+The Country Guide website is a comprehensive platform designed to help individuals search for specific country information and retrieve essential details, including the country's general information and its flag. Users can easily search for their desired country using the search bar, and the website will display the relevant information on the page.
 
-        - Country Information: The website provides users with detailed information about a specific country, including its name, population, capital, languages spoken, currency, timezones, and regional blocs. Users can gain a comprehensive understanding of the country's attributes.
+**Key Features:**
 
-        - Flag Display: Alongside the country information, the website prominently displays the flag of the searched country. This visual representation enhances the user experience and allows users to quickly identify and associate the flag with the corresponding country.
+- Country Information: The website provides users with detailed information about a specific country, including its name, population, capital, languages spoken, currency, timezones, and regional blocs. Users can gain a comprehensive understanding of the country's attributes.
 
-        - User-Friendly Interface: The website is built using HTML, CSS, and JavaScript, with the integration of libraries like Bootstrap to create a visually appealing and responsive user interface. Users can easily navigate through the website, search for countries, and access the desired information effortlessly.
+- Flag Display: Alongside the country information, the website prominently displays the flag of the searched country. This visual representation enhances the user experience and allows users to quickly identify and associate the flag with the corresponding country.
 
-        - Search Functionality: The search bar enables users to input the name or code of the country they are interested in. Upon submitting the search query, the website fetches the relevant country data from the countries API and displays it in an organized and user-friendly manner.
+- User-Friendly Interface: The website is built using HTML, CSS, and JavaScript, with the integration of libraries like Bootstrap to create a visually appealing and responsive user interface. Users can easily navigate through the website, search for countries, and access the desired information effortlessly.
 
-        - Integration with Countries API: The website utilizes a countries API to retrieve the necessary data about countries. By leveraging the API's endpoints and query parameters, the website can fetch accurate and up-to-date information for display.
+- Search Functionality: The search bar enables users to input the name or code of the country they are interested in. Upon submitting the search query, the website fetches the relevant country data from the countries API and displays it in an organized and user-friendly manner.
 
-        - Responsive Design:  The website is designed to be responsive, ensuring a seamless experience across various devices and screen sizes. Users can access the country information and explore the website's features from their desktop computers, tablets, or mobile devices.
+- Integration with Countries API: The website utilizes a countries API to retrieve the necessary data about countries. By leveraging the API's endpoints and query parameters, the website can fetch accurate and up-to-date information for display.
 
-        With the combined power of **HTML, CSS, JavaScript**, and libraries like **Bootstrap**, the Country Guide website provides users with an intuitive and interactive platform to search for and explore detailed information about countries worldwide.
+- Responsive Design: The website is designed to be responsive, ensuring a seamless experience across various devices and screen sizes. Users can access the country information and explore the website's features from their desktop computers, tablets, or mobile devices.
 
-    ### Provide an overview of the REST Countries API and its role in fetching country data for the website.
+With the combined power of **HTML, CSS, JavaScript**, and libraries like **Bootstrap**, the Country Guide website provides users with an intuitive and interactive platform to search for and explore detailed information about countries worldwide.
+
+### Provide an overview of the REST Countries API and its role in fetching country data for the website.
+
+    REST Countries API
+
+The REST Countries API is a powerful resource that enables us to retrieve comprehensive information about countries worldwide. By utilizing this API, we can seamlessly fetch country data for our website.
+
+API Documentation: REST Countries API Documentation
+
+Key Features and Functionality:
+
+    Country Information: The API provides extensive information about countries, including details such as country codes, names, capitals, currencies, languages spoken, timezones, regional blocs, and much more. This wealth of data allows us to present a holistic view of each country on our website.
+
+    Search Capability: With the REST Countries API, we can search for countries based on various parameters, including country codes, names, and capitals. This search functionality enables users to find specific countries quickly and efficiently.
+
+    Currency Information: The API includes data on the currency used by each country. This information can be valuable for users interested in learning about different currencies around the world.
+
+For our project, we will primarily utilize the country code and name to retrieve the desired country information. These parameters will serve as the main search criteria for fetching the relevant country data.
+
+By leveraging the REST Countries API, we can access a vast repository of country data, enabling us to present accurate and up-to-date information to our website users. Please refer to the provided API documentation for more details on the available endpoints, query parameters, and response formats.
 
 ## Getting Started
 
