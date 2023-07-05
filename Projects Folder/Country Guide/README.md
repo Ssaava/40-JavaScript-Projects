@@ -2,7 +2,22 @@
 
 # Table of Contents
 
-[Introduction](#introduction)
+[Introduction](#Introduction)
+
+- [Description](#Brief description of the purpose and features of the website.)
+- [Features](#Key Features)
+
+[REST Countries API](#REST Countries API)
+
+- [Overview](#Overview of the REST Countries API and its role in fetching country data for the website.)
+- [Features](#Key Features and Functionality:)
+
+[Getting Started](#Getting Started)
+
+- [Work with the website](#To work with the Country Guide website, follow these steps:)
+- [Functionality](Website Functionality)
+
+[Conclusion](#Conclusion)
 
 ## Introduction
 
@@ -26,6 +41,8 @@ The Country Guide website is a comprehensive platform designed to help individua
 
 With the combined power of **HTML, CSS, JavaScript**, and libraries like **Bootstrap**, the Country Guide website provides users with an intuitive and interactive platform to search for and explore detailed information about countries worldwide.
 
+# REST Countries API
+
 ### Overview of the REST Countries API and its role in fetching country data for the website.
 
 The REST Countries API is a powerful resource that enables us to retrieve comprehensive information about countries worldwide. By utilizing this API, we can seamlessly fetch country data for our website.
@@ -42,9 +59,9 @@ For our project, we will primarily utilize the country code and name to retrieve
 
 By leveraging the **REST Countries API**, we can access a vast repository of country data, enabling us to present accurate and up-to-date information to our website users. Please refer to the provided [API documentation](https://restcountries.com/v3.1/all) for more details on the available endpoints, query parameters, and response formats.
 
-## Getting Started
+# Getting Started
 
-### To begin working with the Country Guide website, follow these steps:
+## To work with the Country Guide website, follow these steps:
 
 - Clone this repository by running the following command in your terminal:
 
@@ -60,7 +77,7 @@ By following these steps, you will be able to access the Country Guide website a
 
 ## Website Functionality
 
-### Detail the features and functionality of the website:
+## Detail the features and functionality of the website:
 
 Home Page:
 : Provide a search input where users can enter a country name or code.
@@ -71,7 +88,7 @@ Country Details Section:
 Display additional information like area, timezones, calling code, and regional blocs.
 Optionally, showcase additional data like borders, neighboring countries, and regional information.
 
-## Conclusion
+# Conclusion
 
     Summarize the key points covered in the documentation.
     Encourage users to explore the REST Countries API documentation for additional information and advanced features.
