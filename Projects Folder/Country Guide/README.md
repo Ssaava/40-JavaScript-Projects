@@ -1,5 +1,9 @@
 # Country Guide Website Documentation
 
+# Table of Contents
+
+[Introduction](#introduction)
+
 ## Introduction
 
 ### Brief description of the purpose and features of the website.
@@ -58,11 +62,12 @@ By following these steps, you will be able to access the Country Guide website a
 
 ### Detail the features and functionality of the website:
 
-**Home Page:**
-Provide a search input where users can enter a country name or code.
+Home Page:
+: Provide a search input where users can enter a country name or code.
 Display a list of countries matching the search query, along with basic information like flag, population, and capital.
-**Country Details Section:**
-Show comprehensive details about a specific country, including its name, flag, population, capital, languages spoken, currency, and more.
+
+Country Details Section:
+: Show comprehensive details about a specific country, including its name, flag, population, capital, languages spoken, currency, and more.
 Display additional information like area, timezones, calling code, and regional blocs.
 Optionally, showcase additional data like borders, neighboring countries, and regional information.
 
