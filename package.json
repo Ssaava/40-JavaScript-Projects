@@ -4,7 +4,8 @@
   "description": "Portfolio Website",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "sass --watch sass:assets/css"
+    "compile:sass": "sass --watch sass:assets/css",
+    "country:sass": "sass --watch Projects Folder/Country Guide/sass:Projects Folder/Country Guide/css"
   },
   "keywords": [
     "Portfolio-Website",

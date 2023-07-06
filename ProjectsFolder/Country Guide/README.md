@@ -4,28 +4,28 @@
 
 [Introduction](#Introduction)
 
-- [Description](#Brief description of the purpose and features of the website.)
-- [Features](#Key Features)
+- [Description](#Description)
+- [Features](#Features)
 
-[REST Countries API](#REST Countries API)
+[REST Countries API](#API)
 
-- [Overview](#Overview of the REST Countries API and its role in fetching country data for the website.)
-- [Features](#Key Features and Functionality:)
+- [Overview](#Overview)
+- [Features](#Features)
 
 [Getting Started](#Getting Started)
 
-- [Work with the website](#To work with the Country Guide website, follow these steps:)
-- [Functionality](Website Functionality)
+- [Work with the website](#Steps)
+- [Functionality](Functionality)
 
 [Conclusion](#Conclusion)
 
 ## Introduction
 
-### Brief description of the purpose and features of the website.
+### Description
 
 The Country Guide website is a comprehensive platform designed to help individuals search for specific country information and retrieve essential details, including the country's general information and its flag. Users can easily search for their desired country using the search bar, and the website will display the relevant information on the page.
 
-**Key Features:**
+**Features**
 
 - Country Information: The website provides users with detailed information about a specific country, including its name, population, capital, languages spoken, currency, timezones, and regional blocs. Users can gain a comprehensive understanding of the country's attributes.
 
@@ -41,15 +41,15 @@ The Country Guide website is a comprehensive platform designed to help individua
 
 With the combined power of **HTML, CSS, JavaScript**, and libraries like **Bootstrap**, the Country Guide website provides users with an intuitive and interactive platform to search for and explore detailed information about countries worldwide.
 
-# REST Countries API
+# API
 
-### Overview of the REST Countries API and its role in fetching country data for the website.
+### Overview
 
 The REST Countries API is a powerful resource that enables us to retrieve comprehensive information about countries worldwide. By utilizing this API, we can seamlessly fetch country data for our website.
 
 API Documentation: [REST Countries API Documentation](https://restcountries.com/v3.1/all)
 
-**Key Features and Functionality:**
+**Features**
 
 - Country Information: The API provides extensive information about countries, including details such as country codes, names, capitals, currencies, languages spoken, timezones, regional blocs, and much more. This wealth of data allows us to present a holistic view of each country on our website.
 
@@ -61,7 +61,7 @@ By leveraging the **REST Countries API**, we can access a vast repository of cou
 
 # Getting Started
 
-## To work with the Country Guide website, follow these steps:
+## Steps
 
 - Clone this repository by running the following command in your terminal:
 
@@ -75,7 +75,7 @@ Please ensure that you have Git installed on your local machine before executing
 
 By following these steps, you will be able to access the Country Guide website and explore its features in your browser.
 
-## Website Functionality
+## Functionality
 
 ## Detail the features and functionality of the website:
 
@@ -88,6 +88,39 @@ By following these steps, you will be able to access the Country Guide website a
   Display additional information like area, timezones, calling code, and regional blocs.
 
 Optionally, showcase additional data like borders, neighboring countries, and regional information.
+
+### Links
+
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [Next.js](https://nextjs.org/) - React framework
+- [Styled Components](https://styled-components.com/) - For styles
+
+### Useful resources
+
+- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+
+## Author
+
+- Website - [Add your name here](https://www.your-site.com)
+- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+
+## Acknowledgments
+
+This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
 
 # Conclusion
 
