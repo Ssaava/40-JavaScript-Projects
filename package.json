@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compile:sass": "sass --watch sass:assets/css",
-    "country:sass": "sass --watch Projects Folder/Country Guide/sass:Projects Folder/Country Guide/css"
+    "country:sass": "sass --watch ProjectsFolder/CountryGuide/sass:ProjectsFolder/CountryGuide/css"
   },
   "keywords": [
     "Portfolio-Website",
