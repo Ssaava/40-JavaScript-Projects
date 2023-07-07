@@ -1,7 +1,0 @@
-@function to_rem($size) {
-  @if unitless($size) {
-    @return $size/16 + "rem";
-  } @else {
-    @error "The value contains an error";
-  }
-}

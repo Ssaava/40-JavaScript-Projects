@@ -1,0 +1,12 @@
+// import some modules
+@use "functions" as m;
+
+//
+.cards {
+  .container-fluid {
+    gap: m.rem(48);
+    .card {
+      width: m.rem(288);
+    }
+  }
+}

@@ -4,23 +4,111 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Countries Guide by Ema⚡</title>
+    <!-- importing normalize.css file -->
+    <link
+      rel="stylesheet"
+      href="../../node_modules/normalize.css/normalize.css"
+    />
     <!-- importing the bootstrap css files for usage -->
     <link
       rel="stylesheet"
       href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
-    <!-- this is our own css style file -->
+    <!-- importing fontaswesome icons -->
+    <link
+      rel="stylesheet"
+      href="../../node_modules/@fortawesome/fontawesome-free/css/all.css"
+    />
+    <!-- importing google fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- our own styles -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- 
-      we need more than one pages that will be displayed for our data and these pages include
-        detail page to display the details for one country
-        the home page that will be used to display all the countries from the API and this is the homepage for the site
-      Questions to ask myself, can the two pages be displayed in a single page by updating the data in the page?
-      https://medium.com/geekculture/asynchronously-updating-a-webpage-in-a-standard-html-css-js-frontend-8496a3388c01
-     -->
+    <!-- this is the first navigation bar -->
+    <nav class="navbar justify-content-between px-4 py-3 title">
+      <h1 class="navbar-brand fs-4 fw-bold">Where in the World?</h1>
+      <button class="btn my-2 my-sm-0 fw-normal" type="submit">
+        <i class="fa-regular fa-moon me-1 fs-5"></i>
+        Dark Mode
+      </button>
+    </nav>
 
+    <!-- this is the second navigation bar -->
+    <form class="navbar justify-content-between px-5 my-5">
+      <input
+        type="search"
+        name="search"
+        id="search"
+        class="border-0 ps-3"
+        placeholder="search for a country..."
+      />
+      <select
+        name="country"
+        id="continent"
+        class="px-2"
+        placeholder="Filter by Region"
+      >
+        <option value="placeholder" disabled="" selected="">
+          Filter by Region
+        </option>
+        <option value="africa">Africa</option>
+        <option value="america">America</option>
+        <option value="asia">Asia</option>
+        <option value="europe">Europe</option>
+        <option value="oceania">Oceania</option>
+      </select>
+    </form>
+
+    <section class="cards">
+      <div class="container-fluid row justify-content-center">
+        <div class="card">
+          <img src="https://flagcdn.com/ax.svg" alt="flag" class="w-25" />
+          <h2>Uganda</h2>
+          <div class="about">
+            <p>Population: <span>20000</span></p>
+            <p>Region: <span>Europe</span></p>
+            <p>Capital: <span>Kampala</span></p>
+          </div>
+        </div>
+        <!-- new -->
+        <div class="card">
+          <img src="https://flagcdn.com/ax.svg" alt="flag" class="w-100" />
+          <h2>Uganda</h2>
+          <div class="about">
+            <p>Population: <span>20000</span></p>
+            <p>Region: <span>Europe</span></p>
+            <p>Capital: <span>Kampala</span></p>
+          </div>
+        </div>
+        <!-- new  -->
+        <div class="card">
+          <img src="https://flagcdn.com/ax.svg" alt="flag" class="w-25" />
+          <h2>Uganda</h2>
+          <div class="about">
+            <p>Population: <span>20000</span></p>
+            <p>Region: <span>Europe</span></p>
+            <p>Capital: <span>Kampala</span></p>
+          </div>
+        </div>
+        <!-- new -->
+        <div class="card">
+          <img src="https://flagcdn.com/ax.svg" alt="flag" class="w-25" />
+          <h2>Uganda</h2>
+          <div class="about">
+            <p>Population: <span>20000</span></p>
+            <p>Region: <span>Europe</span></p>
+            <p>Capital: <span>Kampala</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
     <p>Made with ❣️by Ema⚡</p>
     <script src="js/script.js"></script>
   </body>
