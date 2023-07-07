@@ -23,7 +23,7 @@ The designs were created to the following widths:
 ### Body Copy
 
 - Homepage Items: 14px
-- Detail Page: 16px 
+- Detail Page: 16px
 
 ### Fonts
 
@@ -39,3 +39,19 @@ Some suggestions can be found below:
 - [Font Awesome](https://fontawesome.com)
 - [IcoMoon](https://icomoon.io)
 - [Ionicons](https://ionicons.com)
+
+Done with setting up the development environment -->
+it is time to start working on the layout and how it will appear using bootstra
+
+we need more than one pages that will be displayed for our data and these pages include
+detail page to display the details for one country
+the home page that will be used to display all the countries from the API and this is the homepage for the site
+Questions to ask myself, can the two pages be displayed in a single page by updating the data in the page?
+
+<!-- we shall have one html file to display all of the required information -->
+
+asynchronously update data in a webpage html -> https://medium.com/geekculture/asynchronously-updating-a-webpage-in-a-standard-html-css-js-frontend-8496a3388c01
+
+<!-- link to the copy website  -->
+
+https://heuristic-johnson-cf1cc8.netlify.app/
