@@ -7,6 +7,26 @@
     gap: m.rem(48);
     .card {
       width: m.rem(288);
+      height: m.rem(352);
+      border-radius: 10px;
+      padding: 0;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      .card-body {
+        padding: 0;
+        h5 {
+          padding: m.rem(16);
+        }
+        ul {
+          padding: m.rem(16);
+
+          li {
+            list-style: none;
+          }
+        }
+      }
     }
   }
 }

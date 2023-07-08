@@ -39,77 +39,58 @@
         Dark Mode
       </button>
     </nav>
-
-    <!-- this is the second navigation bar -->
-    <form class="navbar justify-content-between px-5 my-5">
-      <input
-        type="search"
-        name="search"
-        id="search"
-        class="border-0 ps-3"
-        placeholder="search for a country..."
-      />
-      <select
-        name="country"
-        id="continent"
-        class="px-2"
-        placeholder="Filter by Region"
-      >
-        <option value="placeholder" disabled="" selected="">
-          Filter by Region
-        </option>
-        <option value="africa">Africa</option>
-        <option value="america">America</option>
-        <option value="asia">Asia</option>
-        <option value="europe">Europe</option>
-        <option value="oceania">Oceania</option>
-      </select>
-    </form>
-
     <section class="cards">
+      <!-- this is the second navigation bar -->
+      <form class="navbar justify-content-between px-5 my-5">
+        <input
+          type="search"
+          name="search"
+          id="search"
+          class="border-0 ps-3"
+          placeholder="search for a country..."
+        />
+        <select
+          name="country"
+          id="continent"
+          class="px-2"
+          placeholder="Filter by Region"
+        >
+          <option value="placeholder" disabled="" selected="">
+            Filter by Region
+          </option>
+          <option value="africa">Africa</option>
+          <option value="america">America</option>
+          <option value="asia">Asia</option>
+          <option value="europe">Europe</option>
+          <option value="oceania">Oceania</option>
+        </select>
+      </form>
+      <!-- this part is for the cards to be displayed -->
       <div class="container-fluid row justify-content-center">
-        <div class="card">
-          <img src="https://flagcdn.com/ax.svg" alt="flag" class="w-25" />
-          <h2>Uganda</h2>
-          <div class="about">
-            <p>Population: <span>20000</span></p>
-            <p>Region: <span>Europe</span></p>
-            <p>Capital: <span>Kampala</span></p>
-          </div>
-        </div>
-        <!-- new -->
-        <div class="card">
-          <img src="https://flagcdn.com/ax.svg" alt="flag" class="w-100" />
-          <h2>Uganda</h2>
-          <div class="about">
-            <p>Population: <span>20000</span></p>
-            <p>Region: <span>Europe</span></p>
-            <p>Capital: <span>Kampala</span></p>
-          </div>
-        </div>
         <!-- new  -->
         <div class="card">
-          <img src="https://flagcdn.com/ax.svg" alt="flag" class="w-25" />
-          <h2>Uganda</h2>
-          <div class="about">
-            <p>Population: <span>20000</span></p>
-            <p>Region: <span>Europe</span></p>
-            <p>Capital: <span>Kampala</span></p>
+          <img
+            src="https://flagcdn.com/ax.svg"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title fw-bold w-100">Uganda</h5>
+            <ul class="card-text fw-light">
+              <li>Population: <span>420000</span></li>
+              <li>Region: <span>Uganda</span></li>
+              <li>Capital: <span>Kampala</span></li>
+            </ul>
           </div>
         </div>
-        <!-- new -->
-        <div class="card">
-          <img src="https://flagcdn.com/ax.svg" alt="flag" class="w-25" />
-          <h2>Uganda</h2>
-          <div class="about">
-            <p>Population: <span>20000</span></p>
-            <p>Region: <span>Europe</span></p>
-            <p>Capital: <span>Kampala</span></p>
-          </div>
-        </div>
+        <!-- card end -->
       </div>
     </section>
-    <p>Made with ❣️by Ema⚡</p>
+    <p class="text-center pt-5">Made with ❣️by Ema⚡</p>
+
+    <!-- importing bootstrap javascript -->
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- our own javascript -->
     <script src="js/script.js"></script>
   </body>
 </html>
