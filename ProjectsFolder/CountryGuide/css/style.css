@@ -11865,26 +11865,27 @@ body {
 body .title {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
-body form #search {
+
+.cards form #search {
   padding-right: 10%;
+  font-size: 0.875rem;
 }
-body form #search,
-body form select {
+.cards form #search,
+.cards form select {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
   outline: none;
   box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.1);
 }
-body form #search .disabled,
-body form select .disabled {
+.cards form #search .disabled,
+.cards form select .disabled {
   color: red;
 }
-body form select {
+.cards form select {
   width: 9.375rem;
   border: none;
   background-color: #fff;
 }
-
 .cards .container-fluid {
   gap: 3rem;
 }
@@ -11909,6 +11910,37 @@ body form select {
 }
 .cards .container-fluid .card .card-body ul li {
   list-style: none;
+}
+
+.card-display button {
+  margin: 1.25rem;
+  width: 7.5rem;
+  font-size: 0.9375rem;
+  text-align: center;
+  padding: 0.5rem 1.25rem;
+  background-color: #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+.card-display .row {
+  margin-top: 3.125rem;
+}
+.card-display .row .flag {
+  width: 30.5rem;
+  display: block;
+  margin-inline: auto;
+}
+.card-display .content span {
+  font-weight: 200;
+}
+.card-display .content .border-countries .border {
+  padding: 0.125rem 0.3125rem;
+  max-width: 8.75rem;
+  height: fit-content;
+  cursor: pointer;
+}
+.card-display .content .border-countries .border:hover {
+  background: rgba(59, 59, 59, 0.15);
+  transition: 1s;
 }
 
 /*# sourceMappingURL=style.css.map */

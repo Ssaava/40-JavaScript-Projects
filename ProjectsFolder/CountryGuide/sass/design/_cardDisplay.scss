@@ -1,0 +1,37 @@
+@use "functions" as m;
+.card-display {
+  button {
+    margin: m.rem(20);
+    width: m.rem(120);
+    font-size: m.rem(15);
+    text-align: center;
+    padding: m.rem(8) m.rem(20);
+    background-color: #fff;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  }
+  .row {
+    margin-top: m.rem(50);
+    .flag {
+      width: m.rem(488);
+      display: block;
+      margin-inline: auto;
+    }
+  }
+  .content {
+    span {
+      font-weight: 200;
+    }
+    .border-countries {
+      .border {
+        padding: m.rem(2) m.rem(5);
+        max-width: m.rem(140);
+        height: fit-content;
+        cursor: pointer;
+        &:hover {
+          background: rgba(59, 59, 59, 0.15);
+          transition: 1s;
+        }
+      }
+    }
+  }
+}

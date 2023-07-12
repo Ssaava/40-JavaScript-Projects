@@ -39,15 +39,17 @@
         Dark Mode
       </button>
     </nav>
+    <!-- the section containing the countries lists -->
+    <!--
     <section class="cards">
-      <!-- this is the second navigation bar -->
+      this is the second navigation bar 
       <form class="navbar justify-content-between px-5 my-5">
         <input
           type="search"
           name="search"
           id="search"
           class="border-0 ps-3"
-          placeholder="search for a country..."
+          placeholder="Search for a country..."
         />
         <select
           name="country"
@@ -65,9 +67,9 @@
           <option value="oceania">Oceania</option>
         </select>
       </form>
-      <!-- this part is for the cards to be displayed -->
+      this part is for the cards to be displayed 
       <div class="container-fluid row justify-content-center">
-        <!-- new  -->
+         new  card
         <div class="card">
           <img
             src="https://flagcdn.com/ax.svg"
@@ -83,9 +85,87 @@
             </ul>
           </div>
         </div>
-        <!-- card end -->
+        card end
       </div>
     </section>
+  -->
+
+    <section class="card-display container-fluid">
+      <button>Back</button>
+      <div class="row">
+        <div class="flag col-lg-6 text-center">
+          <img
+            src="https://flagcdn.com/ax.svg"
+            class="card-img-top"
+            alt="..."
+          />
+        </div>
+        <div class="content col-lg-6 col-md-12 text-start">
+          <div class="row my-3">
+            <div class="col-lg-12 fw-bold country-name">Uganda</div>
+          </div>
+          <div class="row my-0">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="my-2">
+                <span class="fw-bold native-name">Native Name: </span>
+                <span class="native">Uganda</span>
+              </div>
+              <div class="my-2">
+                <span class="fw-bold region-name">Region: </span>
+                <span class="region">Central</span>
+              </div>
+              <div class="my-2">
+                <span class="fw-bold capital-name">Capital: </span>
+                <span class="capital">Kampala</span>
+              </div>
+              <div class="my-2">
+                <span class="fw-bold currency-name">Currencies: </span>
+                <span class="currency">Shillings</span>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="my-2">
+                <span class="fw-bold population-size">Population: </span>
+                <span class="population">120000</span>
+              </div>
+              <div class="my-2">
+                <span class="fw-bold sub-region-name">Sub Region: </span>
+                <span class="sub-region">Eastern Asia</span>
+              </div>
+              <div class="my-2">
+                <span class="fw-bold top-level-domain-name"
+                  >Top Level Domain:
+                </span>
+                <span class="top-level-domain">.cn</span>
+              </div>
+              <div class="my-2">
+                <span class="fw-bold language-name">Languages: </span>
+                <span class="Language">Luganda</span>
+              </div>
+            </div>
+          </div>
+          <div class="border-countries row my-3">
+            <div class="col-lg-12 d-flex gap-3 flex-wrap">
+              <span class="fw-bold me-4 border-country-names"
+                >Border Countries:
+              </span>
+              <span class="border border-countries">Tanzania Uganda</span>
+              <span class="border border-countries"
+                >Tanzania Republic Kenya</span
+              >
+              <span class="border border-countries">Tanzania</span>
+              <span class="border border-countries">Tanzania</span>
+              <span class="border border-countries">Tanzania</span>
+              <span class="border border-countries">Tanzania</span>
+              <span class="border border-countries">Tanzania</span>
+              <span class="border border-countries">Tanzania</span>
+              <span class="border border-countries">Tanzania</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <p class="text-center pt-5">Made with ❣️by Ema⚡</p>
 
     <!-- importing bootstrap javascript -->
