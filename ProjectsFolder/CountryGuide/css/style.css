@@ -100,7 +100,7 @@
   --bs-link-hover-color-rgb: 10, 88, 202;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
-  --bs-border-width: 1px;
+  --bs-border-width: 2px;
   --bs-border-style: solid;
   --bs-border-color: #dee2e6;
   --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
@@ -11858,12 +11858,49 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+:root {
+  --Dark_Mode_Elements: hsl(209, 23%, 22%);
+  --Dark_Mode_Background: hsl(207, 26%, 17%);
+  --Light_Mode_Text: hsl(200, 15%, 8%);
+  --Light_Mode_Input: hsl(0, 0%, 52%);
+  --Light_Mode_Background: hsl(0, 0%, 98%);
+  --Dark_Mode_Text: hsl(0, 0%, 100%);
+  --Light_Mode_Elements: hsl(0, 0%, 100%);
+  --Light_Mode_Shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  --Dark_Mode_Shadow: 0 0 20px rgba(233, 233, 233, 0.2);
+  --Button_Shadow_Light: 5px 10px 15px rgba(0, 0, 0, 0.1);
+  --Button_Shadow_Dark: 5px 10px 15px rgba(233, 233, 233, 0.1);
+  transition: 0.2s;
+  --Light_Mode_Border: hsl(200, 15%, 8%);
+}
+
+.dark-mode {
+  --Light_Mode_Text: hsl(0, 0%, 100%);
+  --Light_Mode_Background: hsl(207, 26%, 17%);
+  --Light_Mode_Elements: hsl(209, 23%, 22%);
+  --Light_Mode_Shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  --Button_Shadow_Light: 8px 8px 15px rgba(0, 0, 0, 0.5);
+  transition: 0.2s;
+  --Light_Mode_Border: hsl(0, 0%, 98%);
+}
+
 body {
   font-family: "Nunito Sans", sans-serif;
-  background-color: #fafafa;
+  background-color: var(--Light_Mode_Background);
 }
 body .title {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  background-color: var(--Light_Mode_Elements);
+  box-shadow: var(--Light_Mode_Shadow);
+}
+body .title h1 {
+  color: var(--Light_Mode_Text);
+}
+body .title button {
+  color: var(--Light_Mode_Text);
+  background: transparent;
+}
+body .author {
+  color: var(--Light_Mode_Text);
 }
 
 .cards form #search {
@@ -11875,16 +11912,13 @@ body .title {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
   outline: none;
-  box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.1);
-}
-.cards form #search .disabled,
-.cards form select .disabled {
-  color: red;
+  box-shadow: var(--Button_Shadow_Light);
+  background-color: var(--Light_Mode_Elements);
+  color: var(--Light_Mode_Text);
 }
 .cards form select {
   width: 9.375rem;
   border: none;
-  background-color: #fff;
 }
 .cards .container-fluid {
   gap: 3rem;
@@ -11894,13 +11928,15 @@ body .title {
   height: 22rem;
   border-radius: 10px;
   padding: 0;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--Button_Shadow_Light);
+  background-color: var(--Light_Mode_Elements);
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
 .cards .container-fluid .card .card-body {
   padding: 0;
+  color: var(--Light_Mode_Text);
 }
 .cards .container-fluid .card .card-body h5 {
   padding: 1rem;
@@ -11915,11 +11951,13 @@ body .title {
 .card-display button {
   margin: 1.25rem;
   width: 7.5rem;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
+  font-family: 500;
   text-align: center;
   padding: 0.5rem 1.25rem;
-  background-color: #fff;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  background-color: var(--Light_Mode_Background);
+  box-shadow: var(--Button_Shadow_Light);
+  color: var(--Light_Mode_Text);
 }
 .card-display .row {
   margin-top: 3.125rem;
@@ -11929,6 +11967,9 @@ body .title {
   display: block;
   margin-inline: auto;
 }
+.card-display .content {
+  color: var(--Light_Mode_Text);
+}
 .card-display .content span {
   font-weight: 200;
 }
@@ -11936,6 +11977,7 @@ body .title {
   padding: 0.125rem 0.3125rem;
   max-width: 8.75rem;
   height: fit-content;
+  border-radius: 0.1875rem;
   cursor: pointer;
 }
 .card-display .content .border-countries .border:hover {

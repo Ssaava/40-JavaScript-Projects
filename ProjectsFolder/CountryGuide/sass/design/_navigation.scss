@@ -1,10 +1,21 @@
 @use "functions" as m;
-
+@use "variables";
 body {
   font-family: "Nunito Sans", sans-serif;
-  background-color: #fafafa;
+  background-color: var(--Light_Mode_Background);
   .title {
     // border-bottom: 1px solid;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    background-color: var(--Light_Mode_Elements);
+    h1 {
+      color: var(--Light_Mode_Text);
+    }
+    button {
+      color: var(--Light_Mode_Text);
+      background: transparent;
+    }
+    box-shadow: var(--Light_Mode_Shadow);
+  }
+  .author {
+    color: var(--Light_Mode_Text);
   }
 }

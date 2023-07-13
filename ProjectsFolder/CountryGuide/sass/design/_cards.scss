@@ -1,5 +1,6 @@
 // import some modules
 @use "functions" as m;
+@use "variables";
 
 //
 .cards {
@@ -15,15 +16,13 @@
       padding-top: m.rem(10);
       padding-bottom: m.rem(10);
       outline: none;
-      box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.1);
-      .disabled {
-        color: red;
-      }
+      box-shadow: var(--Button_Shadow_Light);
+      background-color: var(--Light_Mode_Elements);
+      color: var(--Light_Mode_Text);
     }
     select {
       width: m.rem(150);
       border: none;
-      background-color: #fff;
     }
   }
   // designing the cards
@@ -34,12 +33,14 @@
       height: m.rem(352);
       border-radius: 10px;
       padding: 0;
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--Button_Shadow_Light);
+      background-color: var(--Light_Mode_Elements);
       border: none;
       background-color: transparent;
       cursor: pointer;
       .card-body {
         padding: 0;
+        color: var(--Light_Mode_Text);
         h5 {
           padding: m.rem(16);
         }

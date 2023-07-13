@@ -1,13 +1,16 @@
 @use "functions" as m;
+@use "variables";
 .card-display {
   button {
     margin: m.rem(20);
     width: m.rem(120);
-    font-size: m.rem(15);
+    font-size: m.rem(14);
+    font-family: 500;
     text-align: center;
     padding: m.rem(8) m.rem(20);
-    background-color: #fff;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+    background-color: var(--Light_Mode_Background);
+    box-shadow: var(--Button_Shadow_Light);
+    color: var(--Light_Mode_Text);
   }
   .row {
     margin-top: m.rem(50);
@@ -18,6 +21,7 @@
     }
   }
   .content {
+    color: var(--Light_Mode_Text);
     span {
       font-weight: 200;
     }
@@ -26,6 +30,8 @@
         padding: m.rem(2) m.rem(5);
         max-width: m.rem(140);
         height: fit-content;
+        border-radius: m.rem(3);
+
         cursor: pointer;
         &:hover {
           background: rgba(59, 59, 59, 0.15);
