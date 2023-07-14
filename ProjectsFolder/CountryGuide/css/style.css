@@ -11872,6 +11872,7 @@ textarea.form-control-lg {
   --Button_Shadow_Dark: 5px 10px 15px rgba(233, 233, 233, 0.1);
   transition: 0.2s;
   --Light_Mode_Border: hsl(200, 15%, 8%);
+  --Light_Mode_Hover: rgba(59, 59, 59, 0.15);
 }
 
 .dark-mode {
@@ -11882,6 +11883,7 @@ textarea.form-control-lg {
   --Button_Shadow_Light: 8px 8px 15px rgba(0, 0, 0, 0.5);
   transition: 0.2s;
   --Light_Mode_Border: hsl(0, 0%, 98%);
+  --Light_Mode_Hover: rgba(170, 170, 170, 0.5);
 }
 
 body {
@@ -11981,8 +11983,8 @@ body .author {
   cursor: pointer;
 }
 .card-display .content .border-countries .border:hover {
-  background: rgba(59, 59, 59, 0.15);
-  transition: 1s;
+  background: var(--Light_Mode_Hover);
+  transition: 0.5s;
 }
 
 /*# sourceMappingURL=style.css.map */

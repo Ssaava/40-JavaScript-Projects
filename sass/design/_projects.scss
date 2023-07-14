@@ -9,6 +9,18 @@
   }
 
   figure {
+    cursor: pointer;
+    position: relative;
+    border: 2px solid white;
+
+    a {
+      position: absolute;
+      background: transparent;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+    }
     img {
       width: 100%;
       object-fit: cover;

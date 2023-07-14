@@ -34,8 +34,8 @@
 
         cursor: pointer;
         &:hover {
-          background: rgba(59, 59, 59, 0.15);
-          transition: 1s;
+          background: var(--Light_Mode_Hover);
+          transition: 0.5s;
         }
       }
     }
