@@ -24,10 +24,14 @@ Your users should be able to:
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode *(optional)*
  */
-body = document.querySelector("body");
+// body = document.body;
 switchMode = document.querySelector(".toggle-mode");
-icons = document.querySelectorAll(".fa-regular");
+const changeTheme = window.matchMedia("(prefers-color-scheme: dark)");
 
 switchMode.addEventListener("click", () => {
-  body.classList.toggle("dark-mode");
+  if (changeTheme.matches) {
+    document.body.classList.toggle("light-mode");
+  } else {
+    document.body.classList.toggle("dark-mode");
+  }
 });

@@ -62,3 +62,6 @@ https://heuristic-johnson-cf1cc8.netlify.app/
 <!-- read about the select html element -->
 
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
+
+Accessibility
+https://www.accessibility-developer-guide.com/

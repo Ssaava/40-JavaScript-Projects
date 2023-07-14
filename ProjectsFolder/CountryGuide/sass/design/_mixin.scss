@@ -1,0 +1,10 @@
+@use "sass:map" as m;
+$themes: (
+  "dark": " prefers-color-scheme: dark ",
+  "light": " prefers-color-scheme: light ",
+);
+@mixin changeTheme($value) {
+  @media (m.get($themes,$value)) {
+    @content;
+  }
+}

@@ -11964,7 +11964,6 @@ html {
 .projects figure {
   cursor: pointer;
   position: relative;
-  border: 2px solid white;
 }
 .projects figure a {
   position: absolute;
