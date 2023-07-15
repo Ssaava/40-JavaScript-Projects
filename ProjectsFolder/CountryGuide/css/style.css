@@ -11897,7 +11897,7 @@ body.dark-mode {
     --Light_Mode_Border: hsl(0, 0%, 98%);
     --Light_Mode_Hover: rgba(170, 170, 170, 0.5);
   }
-  body .light-mode {
+  body.light-mode {
     --Light_Mode_Text: hsl(200, 15%, 8%);
     --Light_Mode_Input: hsl(0, 0%, 52%);
     --Light_Mode_Background: hsl(0, 0%, 98%);

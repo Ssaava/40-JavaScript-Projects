@@ -24,14 +24,63 @@ Your users should be able to:
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode *(optional)*
  */
-// body = document.body;
-switchMode = document.querySelector(".toggle-mode");
-const changeTheme = window.matchMedia("(prefers-color-scheme: dark)");
+window.addEventListener("DOMContentLoaded", () => {
+  // the variables that we are gonna use in the app
+  const body = document.body;
+  const switchMode = document.querySelector(".toggle-mode");
+  const changeTheme = window.matchMedia("(prefers-color-scheme: dark)");
+  const icon = document.querySelector(".fa-moon");
+  const textMode = document.querySelector(".mode-text");
 
-switchMode.addEventListener("click", () => {
+  // function to reuse the dark mode and light mode themes
+  const darkMode = () => {
+    textMode.textContent = "Light Mode";
+    icon.classList.add("fa-sun");
+    icon.classList.remove("fa-moon");
+  };
+  const lightMode = () => {
+    textMode.innerText = "Dark Mode";
+    icon.classList.remove("fa-sun");
+    icon.classList.add("fa-moon");
+  };
+  // toggle dark mode on dom content loaded
   if (changeTheme.matches) {
-    document.body.classList.toggle("light-mode");
+    darkMode();
   } else {
-    document.body.classList.toggle("dark-mode");
+    lightMode();
   }
+
+  // toggling between dark and light mode if button is clicked
+  switchMode.addEventListener("click", () => {
+    // logic for the dark mode
+    if (changeTheme.matches) {
+      if (body.classList.contains("light-mode")) {
+        body.classList.remove("light-mode");
+        darkMode();
+      } else {
+        body.classList.toggle("light-mode");
+        lightMode();
+      }
+
+      if (body.classList.contains("dark-mode")) {
+        body.classList.remove("dark-mode");
+      }
+    }
+
+    // logic for the light theme
+    else {
+      if (body.classList.contains("dark-mode")) {
+        body.classList.remove("dark-mode");
+        lightMode();
+      } else {
+        body.classList.toggle("dark-mode");
+        darkMode();
+      }
+
+      if (body.classList.contains("light-mode")) {
+        body.classList.remove("light-mode");
+      }
+    }
+  });
+  // end of the switch functionality
 });
