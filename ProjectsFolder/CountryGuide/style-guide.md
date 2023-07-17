@@ -65,3 +65,5 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
 
 Accessibility
 https://www.accessibility-developer-guide.com/
+
+<!--next we are now goint to load all the data from the API to the web page -->
