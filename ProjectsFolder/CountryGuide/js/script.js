@@ -31,23 +31,39 @@ window.addEventListener("DOMContentLoaded", () => {
   const changeTheme = window.matchMedia("(prefers-color-scheme: dark)");
   const icon = document.querySelector(".fa-moon");
   const textMode = document.querySelector(".mode-text");
+  // selecting the stored theme from the local storage
+  let theme = localStorage.getItem("theme");
 
   // function to reuse the dark mode and light mode themes
   const darkMode = () => {
     textMode.textContent = "Light Mode";
     icon.classList.add("fa-sun");
     icon.classList.remove("fa-moon");
+    theme = "dark";
   };
   const lightMode = () => {
     textMode.innerText = "Dark Mode";
     icon.classList.remove("fa-sun");
     icon.classList.add("fa-moon");
+    theme = "light";
   };
   // toggle dark mode on dom content loaded
   if (changeTheme.matches) {
-    darkMode();
+    if (theme == "dark") {
+      body.classList.toggle("dark-mode");
+      darkMode();
+    } else {
+      lightMode();
+      body.classList.toggle("light-mode");
+    }
   } else {
-    lightMode();
+    if (theme == "light") {
+      lightMode();
+      body.classList.toggle("light-mode");
+    } else {
+      darkMode();
+      body.classList.toggle("dark-mode");
+    }
   }
 
   // toggling between dark and light mode if button is clicked
@@ -81,6 +97,8 @@ window.addEventListener("DOMContentLoaded", () => {
         body.classList.remove("light-mode");
       }
     }
+    // store theme after user clicks
+    theme = localStorage.setItem("theme", theme);
   });
   // end of the switch functionality
 });
