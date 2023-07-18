@@ -11928,6 +11928,9 @@ body .title button {
   border: none;
   font-size: clamp(0.75rem, 2.5vw, 1rem);
 }
+body .title button i {
+  font-size: 1.2em;
+}
 body .author {
   color: var(--Light_Mode_Text);
 }

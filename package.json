@@ -22,6 +22,8 @@
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
+    "postcss": "^8.4.26",
+    "postcss-cli": "^10.1.0",
     "sass": "^1.60.0"
   }
 }

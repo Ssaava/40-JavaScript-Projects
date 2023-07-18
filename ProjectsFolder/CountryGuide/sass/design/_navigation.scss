@@ -16,6 +16,9 @@ body {
       background: transparent;
       border: none;
       font-size: clamp(m.rem(12), 2.5vw, m.rem(16));
+      i {
+        font-size: 1.2em;
+      }
     }
     box-shadow: var(--Light_Mode_Shadow);
   }
