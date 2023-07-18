@@ -11915,15 +11915,18 @@ body {
 }
 body .title {
   background-color: var(--Light_Mode_Elements);
+  vertical-align: middle;
   box-shadow: var(--Light_Mode_Shadow);
 }
 body .title h1 {
   color: var(--Light_Mode_Text);
+  font-size: clamp(1.25rem, 5vw, 2.1875rem);
 }
 body .title button {
   color: var(--Light_Mode_Text);
   background: transparent;
   border: none;
+  font-size: clamp(0.75rem, 2.5vw, 1rem);
 }
 body .author {
   color: var(--Light_Mode_Text);

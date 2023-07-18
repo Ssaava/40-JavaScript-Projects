@@ -6,13 +6,16 @@ body {
   .title {
     // border-bottom: 1px solid;
     background-color: var(--Light_Mode_Elements);
+    vertical-align: middle;
     h1 {
       color: var(--Light_Mode_Text);
+      font-size: clamp(m.rem(20), 5vw, m.rem(35));
     }
     button {
       color: var(--Light_Mode_Text);
       background: transparent;
       border: none;
+      font-size: clamp(m.rem(12), 2.5vw, m.rem(16));
     }
     box-shadow: var(--Light_Mode_Shadow);
   }
