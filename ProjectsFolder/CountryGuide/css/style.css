@@ -11923,6 +11923,7 @@ body .title h1 {
 body .title button {
   color: var(--Light_Mode_Text);
   background: transparent;
+  border: none;
 }
 body .author {
   color: var(--Light_Mode_Text);
@@ -11978,6 +11979,7 @@ body .author {
   width: 7.5rem;
   font-size: 0.875rem;
   font-family: 500;
+  border: none;
   text-align: center;
   padding: 0.5rem 1.25rem;
   background-color: var(--Light_Mode_Background);
