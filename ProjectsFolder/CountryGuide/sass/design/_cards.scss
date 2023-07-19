@@ -38,6 +38,11 @@
       border: none;
       background-color: transparent;
       cursor: pointer;
+      img {
+        display: block;
+        height: m.rem(192);
+        object-fit: cover;
+      }
       .card-body {
         padding: 0;
         color: var(--Light_Mode_Text);

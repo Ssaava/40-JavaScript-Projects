@@ -11915,7 +11915,6 @@ body {
 }
 body .title {
   background-color: var(--Light_Mode_Elements);
-  vertical-align: middle;
   box-shadow: var(--Light_Mode_Shadow);
 }
 body .title h1 {
@@ -11965,6 +11964,11 @@ body .author {
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+.cards .container-fluid .card img {
+  display: block;
+  height: 12rem;
+  object-fit: cover;
 }
 .cards .container-fluid .card .card-body {
   padding: 0;
