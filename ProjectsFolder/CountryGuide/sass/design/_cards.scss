@@ -1,6 +1,7 @@
 // import some modules
 @use "functions" as m;
 @use "variables";
+@use "mixin" as mix;
 
 //
 .cards {
@@ -10,6 +11,9 @@
     #search {
       padding-right: 10%;
       font-size: m.rem(14);
+      @include mix.smallScreen(small) {
+        width: 100%;
+      }
     }
     #search,
     select {
@@ -26,8 +30,9 @@
     }
   }
   // designing the cards
-  .container-fluid {
+  .cards-container {
     gap: m.rem(48);
+    margin: 0;
     .card {
       width: m.rem(288);
       height: m.rem(352);

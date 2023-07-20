@@ -11938,6 +11938,11 @@ body .author {
   padding-right: 10%;
   font-size: 0.875rem;
 }
+@media (max-width: 32.8125rem) {
+  .cards form #search {
+    width: 100%;
+  }
+}
 .cards form #search,
 .cards form select {
   padding-top: 0.625rem;
@@ -11951,10 +11956,11 @@ body .author {
   width: 9.375rem;
   border: none;
 }
-.cards .container-fluid {
+.cards .cards-container {
   gap: 3rem;
+  margin: 0;
 }
-.cards .container-fluid .card {
+.cards .cards-container .card {
   width: 18rem;
   height: 22rem;
   border-radius: 10px;
@@ -11965,22 +11971,22 @@ body .author {
   background-color: transparent;
   cursor: pointer;
 }
-.cards .container-fluid .card img {
+.cards .cards-container .card img {
   display: block;
   height: 12rem;
   object-fit: cover;
 }
-.cards .container-fluid .card .card-body {
+.cards .cards-container .card .card-body {
   padding: 0;
   color: var(--Light_Mode_Text);
 }
-.cards .container-fluid .card .card-body h5 {
+.cards .cards-container .card .card-body h5 {
   padding: 1rem;
 }
-.cards .container-fluid .card .card-body ul {
+.cards .cards-container .card .card-body ul {
   padding: 1rem;
 }
-.cards .container-fluid .card .card-body ul li {
+.cards .cards-container .card .card-body ul li {
   list-style: none;
 }
 

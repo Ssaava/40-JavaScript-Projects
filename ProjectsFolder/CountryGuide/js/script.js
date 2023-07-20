@@ -141,14 +141,20 @@ window.addEventListener("DOMContentLoaded", () => {
 
       section.classList.add("cards");
       body.appendChild(section);
-      form.classList.add("navbar", "justify-content-between", "px-5", "my-5");
+      form.classList.add(
+        "navbar",
+        "justify-content-between",
+        "gap-3",
+        "px-5",
+        "my-5"
+      );
       section.appendChild(form);
       form.innerHTML = formContent;
       cardsContainer.classList.add(
         "container-fluid",
         "row",
         "justify-content-center",
-        "countries-container"
+        "cards-container"
       );
       section.appendChild(cardsContainer);
 
