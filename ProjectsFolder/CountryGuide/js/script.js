@@ -133,42 +133,46 @@ window.addEventListener("DOMContentLoaded", () => {
   // end of the switch functionality
 
   // working on fetching data from the API to the html
+
+  // create the section to show countries
+
+  section.classList.add("cards");
+  body.appendChild(section);
+  form.classList.add(
+    "navbar",
+    "justify-content-between",
+    "gap-3",
+    "px-5",
+    "my-5"
+  );
+  section.appendChild(form);
+  form.innerHTML = formContent;
+  cardsContainer.classList.add(
+    "container-fluid",
+    "row",
+    "justify-content-center",
+    "cards-container"
+  );
+  section.appendChild(cardsContainer);
+
+  // async function to get the
   async function getCountries() {
+    let countryNames = [];
     try {
       const response = await fetch(url);
       const countries = await response.json();
-      // create the section to show countries
-
-      section.classList.add("cards");
-      body.appendChild(section);
-      form.classList.add(
-        "navbar",
-        "justify-content-between",
-        "gap-3",
-        "px-5",
-        "my-5"
-      );
-      section.appendChild(form);
-      form.innerHTML = formContent;
-      cardsContainer.classList.add(
-        "container-fluid",
-        "row",
-        "justify-content-center",
-        "cards-container"
-      );
-      section.appendChild(cardsContainer);
 
       // put coutnries in html
       countries.forEach((element) => {
-        console.log(element);
-        showCountries(element);
+        showCountries(element, countryNames);
+        // objectCountry.assign(element);
       });
     } catch (err) {
       document.write(err);
     }
   }
 
-  const showCountries = (data) => {
+  const showCountries = (data, array = []) => {
     // we shall need to create a new div element every after each iteration
     const card = document.createElement("div");
     card.classList.add("card");
@@ -191,6 +195,7 @@ window.addEventListener("DOMContentLoaded", () => {
          
      
       `;
+
     cardsContainer.appendChild(card);
   };
   getCountries();
