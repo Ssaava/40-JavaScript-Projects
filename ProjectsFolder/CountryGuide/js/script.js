@@ -161,63 +161,18 @@ window.addEventListener("DOMContentLoaded", () => {
     try {
       const response = await fetch(url);
       const countries = await response.json();
-<<<<<<< HEAD
 
       // put coutnries in html
       countries.forEach((element) => {
         showCountries(element, countryNames);
         // objectCountry.assign(element);
-=======
-      // create the section to show countries
-
-      // Sort the countries array using the custom comparison function
-      let sortedCountries = countries.sort((a, b) => {
-        const nameA = a.name.common.toLowerCase();
-        const nameB = b.name.common.toLowerCase();
-        if (nameA < nameB) {
-          return -1;
-        }
-        if (nameA > nameB) {
-          return 1;
-        }
-        return 0;
-      });
-
-      // try it here
-
-      // put coutnries in html
-      sortedCountries.forEach((element) => {
-        showCountries(element);
->>>>>>> OrderCountries
       });
     } catch (err) {
       document.write(err);
     }
   }
 
-<<<<<<< HEAD
   const showCountries = (data, array = []) => {
-=======
-  const showCountries = (data) => {
-    section.classList.add("cards");
-    body.appendChild(section);
-    form.classList.add(
-      "navbar",
-      "justify-content-between",
-      "gap-3",
-      "px-5",
-      "my-5"
-    );
-    section.appendChild(form);
-    form.innerHTML = formContent;
-    cardsContainer.classList.add(
-      "container-fluid",
-      "row",
-      "justify-content-center",
-      "cards-container"
-    );
-    section.appendChild(cardsContainer);
->>>>>>> OrderCountries
     // we shall need to create a new div element every after each iteration
     const card = document.createElement("div");
     card.classList.add("card");
