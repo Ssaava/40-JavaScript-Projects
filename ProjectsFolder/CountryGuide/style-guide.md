@@ -67,3 +67,7 @@ Accessibility
 https://www.accessibility-developer-guide.com/
 
 <!--next we are now goint to load all the data from the API to the web page -->
+
+all data has been loaded into the page and well sorted
+
+Next part is working on the filter function to work effectively but will do this next week
