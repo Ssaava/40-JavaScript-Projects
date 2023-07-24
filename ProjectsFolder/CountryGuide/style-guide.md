@@ -70,4 +70,4 @@ https://www.accessibility-developer-guide.com/
 
 all data has been loaded into the page and well sorted
 
-Next part is working on the filter function to work effectively but will do this next week
+Next part is working on the search bar to work effectively but will do this next week

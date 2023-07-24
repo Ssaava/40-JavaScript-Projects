@@ -166,8 +166,8 @@ window.addEventListener("DOMContentLoaded", () => {
       const sortedCountries = countries.sort((a, b) => {
         const countryA = a.name.common.toLowerCase();
         const countryB = b.name.common.toLowerCase();
-        if (countryA > countryB) return 1;
         if (countryA < countryB) return -1;
+        if (countryA > countryB) return 1;
         return 0;
       });
       // put coutnries in html
