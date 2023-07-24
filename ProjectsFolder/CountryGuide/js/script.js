@@ -162,8 +162,16 @@ window.addEventListener("DOMContentLoaded", () => {
       const response = await fetch(url);
       const countries = await response.json();
 
+      // sorting the countries using a function
+      const sortedCountries = countries.sort((a, b) => {
+        const countryA = a.name.common.toLowerCase();
+        const countryB = b.name.common.toLowerCase();
+        if (countryA > countryB) return 1;
+        if (countryA < countryB) return -1;
+        return 0;
+      });
       // put coutnries in html
-      countries.forEach((element) => {
+      sortedCountries.forEach((element) => {
         showCountries(element, countryNames);
         // objectCountry.assign(element);
       });
