@@ -30,6 +30,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
           <option value="asia">Asia</option>
           <option value="europe">Europe</option>
           <option value="oceania">Oceania</option>
+          
         </select>
 `;
 
@@ -58,11 +59,11 @@ window.addEventListener("DOMContentLoaded", (e) => {
     "cards-container"
   );
   section.appendChild(cardsContainer);
-  // getting the search input after loading the it in the DOM
+  // getting the stored input on the localStorage after loading the it in the DOM
   const searchInput = document.querySelector("#search");
   const filteredList = document.querySelector("#continent");
-  let countriesList = "";
-
+  let searchInputValue = localStorage.getItem("searchInput");
+  let filterInputValue = localStorage.getItem("filterInput");
   // async function to get the
   async function getCountries() {
     try {
@@ -78,11 +79,12 @@ window.addEventListener("DOMContentLoaded", (e) => {
         return 0;
       });
 
-      // put coutnries in html
-      if (searchInput.value.length <= 0) {
-        sortedCountries.forEach((element) => {
-          showCountries(element);
-        });
+      // put coutnries in html at loading of the page
+      if (
+        searchInput.value.length <= 0 &&
+        filteredList.value === "placeholder"
+      ) {
+        arrayOperations(sortedCountries);
       }
 
       //   searching for a scpecific element in the array
@@ -91,13 +93,23 @@ window.addEventListener("DOMContentLoaded", (e) => {
           country.name.common.toLowerCase().includes(query.toLowerCase())
         );
       };
-
-      searchInput.addEventListener("input", () => {
+      // display the countries basing on the stored value of the search input
+      if (searchInputValue.length > 0 && filteredList.value === "placeholder") {
+        searchInput.value = searchInputValue;
+        newArray = searchedCountry(sortedCountries, searchInputValue);
+        cardsContainer.innerHTML = "";
+        arrayOperations(newArray);
+      }
+      searchInput.addEventListener("input", (e) => {
+        e.preventDefault();
+        filterInputValue = localStorage.setItem("filterInput", "");
+        searchInputValue = localStorage.setItem(
+          "searchInput",
+          searchInput.value
+        );
         newArray = searchedCountry(sortedCountries, searchInput.value);
         cardsContainer.innerHTML = "";
-        newArray.forEach((element) => {
-          showCountries(element);
-        });
+        arrayOperations(newArray);
       });
       // end of search
 
@@ -107,19 +119,32 @@ window.addEventListener("DOMContentLoaded", (e) => {
           country.continents[0].toLowerCase().includes(query.toLowerCase())
         );
       };
-
-      filteredList.addEventListener("change", () => {
+      //  display filtered results on loading of the page
+      if (filterInputValue.length > 0 && searchInputValue.length <= 0) {
+        filteredList.value = filterInputValue;
+        newArray = filteredCountry(sortedCountries, filterInputValue);
+        cardsContainer.innerHTML = "";
+        arrayOperations(newArray);
+      }
+      filteredList.addEventListener("change", (e) => {
+        e.preventDefault();
         newArray = filteredCountry(sortedCountries, filteredList.value);
         cardsContainer.innerHTML = "";
-        newArray.forEach((element) => {
-          showCountries(element);
-        });
+        arrayOperations(newArray);
+        filterInputValue = localStorage.setItem(
+          "filterInput",
+          filteredList.value
+        );
       });
     } catch (err) {
       document.write(err);
     }
   }
-
+  const arrayOperations = (value) => {
+    value.forEach((element) => {
+      showCountries(element);
+    });
+  };
   const showCountries = (data) => {
     // we shall need to create a new div element every after each iteration
     const card = document.createElement("div");
@@ -147,8 +172,4 @@ window.addEventListener("DOMContentLoaded", (e) => {
     cardsContainer.appendChild(card);
   };
   getCountries();
-  // essential code to be used when filtering the array
-  //   searchInput.addEventListener("input", () => {
-  //     console.log("Item Changed value", searchInput.value);
-  //   });
 });
