@@ -11912,6 +11912,8 @@ body.dark-mode {
 body {
   font-family: "Nunito Sans", sans-serif;
   background-color: var(--Light_Mode_Background);
+  position: relative;
+  padding-bottom: 5.625rem;
 }
 body .title {
   background-color: var(--Light_Mode_Elements);
@@ -11932,6 +11934,10 @@ body .title button i {
 }
 body .author {
   color: var(--Light_Mode_Text);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .cards form #search {
@@ -11962,7 +11968,7 @@ body .author {
 }
 .cards .cards-container .card {
   width: 18rem;
-  height: 22rem;
+  height: 22.09375rem;
   border-radius: 10px;
   padding: 0;
   box-shadow: var(--Button_Shadow_Light);
@@ -11982,9 +11988,13 @@ body .author {
 }
 .cards .cards-container .card .card-body h5 {
   padding: 1rem;
+  font-size: 1.0625rem;
+  margin: 0.3125rem 0 0;
+  height: 3.925rem;
 }
 .cards .cards-container .card .card-body ul {
   padding: 1rem;
+  height: 5.875rem;
 }
 .cards .cards-container .card .card-body ul li {
   list-style: none;

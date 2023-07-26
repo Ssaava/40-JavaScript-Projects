@@ -1,8 +1,11 @@
 @use "functions" as m;
 @use "variables";
+
 body {
   font-family: "Nunito Sans", sans-serif;
   background-color: var(--Light_Mode_Background);
+  position: relative;
+  padding-bottom: m.rem(90);
 
   .title {
     // border-bottom: 1px solid;
@@ -25,5 +28,9 @@ body {
   }
   .author {
     color: var(--Light_Mode_Text);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
   }
 }

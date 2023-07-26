@@ -35,7 +35,7 @@
     margin: 0;
     .card {
       width: m.rem(288);
-      height: m.rem(352);
+      height: m.rem(353.5);
       border-radius: 10px;
       padding: 0;
       box-shadow: var(--Button_Shadow_Light);
@@ -53,9 +53,13 @@
         color: var(--Light_Mode_Text);
         h5 {
           padding: m.rem(16);
+          font-size: m.rem(17);
+          margin: m.rem(5) 0 0;
+          height: m.rem(62.8);
         }
         ul {
           padding: m.rem(16);
+          height: m.rem(94);
 
           li {
             list-style: none;

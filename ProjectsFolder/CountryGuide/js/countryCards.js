@@ -162,7 +162,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
               <ul class="card-text fw-light">
                 <li>Population: <span>${data.population}</span></li>
                 <li>Region: <span>${data.region}</span></li>
-                <li>Capital: <span>${data.capital}</span></li>
+                <li>Capital: <span>${verifyCapital(data)}</span></li>
               </ul>
             </div>
          
@@ -170,6 +170,13 @@ window.addEventListener("DOMContentLoaded", (e) => {
       `;
 
     cardsContainer.appendChild(card);
+  };
+  const verifyCapital = (capital) => {
+    if (capital.capital === undefined) {
+      return "No capital";
+    }
+
+    return capital.capital[0];
   };
   getCountries();
 });
