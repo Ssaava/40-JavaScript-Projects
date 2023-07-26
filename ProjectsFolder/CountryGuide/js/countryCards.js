@@ -6,6 +6,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
   const section = document.createElement("section");
   const form = document.createElement("form");
   const cardsContainer = document.createElement("div");
+
   const formContent = `
         <input
           type="search"
@@ -59,6 +60,9 @@ window.addEventListener("DOMContentLoaded", (e) => {
   section.appendChild(cardsContainer);
   // getting the search input after loading the it in the DOM
   const searchInput = document.querySelector("#search");
+  const filteredList = document.querySelector("#continent");
+  let countriesList = "";
+
   // async function to get the
   async function getCountries() {
     try {
@@ -95,7 +99,22 @@ window.addEventListener("DOMContentLoaded", (e) => {
           showCountries(element);
         });
       });
-      //   end of search
+      // end of search
+
+      // filtering the countries by region
+      const filteredCountry = (arr, query) => {
+        return arr.filter((country) =>
+          country.continents[0].toLowerCase().includes(query.toLowerCase())
+        );
+      };
+
+      filteredList.addEventListener("change", () => {
+        newArray = filteredCountry(sortedCountries, filteredList.value);
+        cardsContainer.innerHTML = "";
+        newArray.forEach((element) => {
+          showCountries(element);
+        });
+      });
     } catch (err) {
       document.write(err);
     }
