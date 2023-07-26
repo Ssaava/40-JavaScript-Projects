@@ -62,8 +62,8 @@ window.addEventListener("DOMContentLoaded", (e) => {
   // getting the stored input on the localStorage after loading the it in the DOM
   const searchInput = document.querySelector("#search");
   const filteredList = document.querySelector("#continent");
-  let searchInputValue = localStorage.getItem("searchInput");
-  let filterInputValue = localStorage.getItem("filterInput");
+  let searchInputValue = localStorage.getItem("searchInput") || "";
+  let filterInputValue = localStorage.getItem("filterInput") || "";
   // async function to get the
   async function getCountries() {
     try {
