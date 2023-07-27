@@ -6,7 +6,6 @@ window.addEventListener("DOMContentLoaded", (e) => {
   const section = document.createElement("section");
   const form = document.createElement("form");
   const cardsContainer = document.createElement("div");
-
   const formContent = `
         <input
           type="search"
@@ -87,7 +86,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
         arrayOperations(sortedCountries);
       }
 
-      //   searching for a scpecific element in the array
+      //   searching for a scpecific country in the countries api array
       const searchedCountry = (arr, query) => {
         return arr.filter((country) =>
           country.name.common.toLowerCase().includes(query.toLowerCase())
@@ -95,21 +94,22 @@ window.addEventListener("DOMContentLoaded", (e) => {
       };
       // display the countries basing on the stored value of the search input
       if (searchInputValue.length > 0 && filteredList.value === "placeholder") {
+        filteredList.value = "placeholder";
         searchInput.value = searchInputValue;
         newArray = searchedCountry(sortedCountries, searchInputValue);
-        cardsContainer.innerHTML = "";
-        arrayOperations(newArray);
+        verifySearchedCountry();
       }
+
       searchInput.addEventListener("input", (e) => {
         e.preventDefault();
+
         filterInputValue = localStorage.setItem("filterInput", "");
         searchInputValue = localStorage.setItem(
           "searchInput",
           searchInput.value
         );
         newArray = searchedCountry(sortedCountries, searchInput.value);
-        cardsContainer.innerHTML = "";
-        arrayOperations(newArray);
+        verifySearchedCountry();
       });
       // end of search
 
@@ -121,6 +121,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
       };
       //  display filtered results on loading of the page
       if (filterInputValue.length > 0 && searchInputValue.length <= 0) {
+        searchInput.value = "";
         filteredList.value = filterInputValue;
         newArray = filteredCountry(sortedCountries, filterInputValue);
         cardsContainer.innerHTML = "";
@@ -136,10 +137,13 @@ window.addEventListener("DOMContentLoaded", (e) => {
           filteredList.value
         );
       });
+      console.log(sortedCountries);
     } catch (err) {
       document.write(err);
     }
   }
+
+  // important functions
   const arrayOperations = (value) => {
     value.forEach((element) => {
       showCountries(element);
@@ -148,7 +152,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
   const showCountries = (data) => {
     // we shall need to create a new div element every after each iteration
     const card = document.createElement("div");
-    card.classList.add("card");
+    card.classList.add("card", "countryCard");
     card.innerHTML = `      
   
           
@@ -170,7 +174,14 @@ window.addEventListener("DOMContentLoaded", (e) => {
       `;
 
     cardsContainer.appendChild(card);
+
+    // Adding an event listener to each card in the hmtl so as to load the country details
+    card.addEventListener("click", (event) => {
+      const countryName = card.childNodes[3].children[0].textContent;
+      displayCOuntryDetails();
+    });
   };
+
   const verifyCapital = (capital) => {
     if (capital.capital === undefined) {
       return "No capital";
@@ -178,5 +189,129 @@ window.addEventListener("DOMContentLoaded", (e) => {
 
     return capital.capital[0];
   };
+  const verifySearchedCountry = () => {
+    if (newArray.length <= 0) {
+      cardsContainer.innerHTML =
+        "<h3 class='text-danger'>There is no such country<h3>";
+    } else {
+      cardsContainer.innerHTML = "";
+      arrayOperations(newArray);
+    }
+  };
   getCountries();
+
+  /**
+   * ====================================================================================================
+   * =====this is where we start with the next part of displaying some of the contents of each card=====
+   * ====================================================================================================
+   */
+  const backButton = document.createElement("button");
+  const countryDetails = document.createElement("div");
+
+  const displayCOuntryDetails = (country) => {
+    // adding the neccessary content to the page after loading it
+    section.innerHTML = "";
+    section.classList.remove("cards");
+    section.classList.add("card-display", "container-fluid");
+    countryDetails.classList.add("row");
+    backButton.textContent = "Back";
+    section.appendChild(backButton);
+    section.appendChild(countryDetails);
+
+    // loading the country details in the html
+
+    countryDetails.innerHTML = `
+    <div class="flag col-lg-6 text-center">
+    <img
+      src=${country.flags.png}
+      class="card-img-top"
+      alt=${country.flags.alt}
+    />
+  </div>
+  <div class="content col-lg-6 col-md-12 text-start">
+    <div class="row my-3">
+      <div class="col-lg-12 fw-bold country-name">${country.name.common}</div>
+    </div>
+    <div class="row my-0">
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="my-2">
+          <span class="fw-bold native-name">Native Name: </span>
+          <span class="native">${
+            // if (element.name.nativeName === undefined) {
+            //   console.log("no name specified");
+            // } else {
+            //   console.log(Object.entries(element.name.nativeName)[0][1].common);
+            // }
+            country.name.nativeName === undefined
+              ? "undefined"
+              : Object.entries(country.name.nativeName)[0][1].common
+          }</span>
+        </div>
+        <div class="my-2">
+          <span class="fw-bold region-name">Region: </span>
+          <span class="region">${country.region}</span>
+        </div>
+        <div class="my-2">
+          <span class="fw-bold capital-name">Capital: </span>
+          <span class="capital">${verifyCapital(country)}</span>
+        </div>
+        <div class="my-2">
+          <span class="fw-bold currency-name">Currencies: </span>
+          <span class="currency">${
+            country.currencies === undefined
+              ? "Undefined"
+              : Object.entries(country.currencies)[0][1].name
+          }</span>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="my-2">
+          <span class="fw-bold population-size">Population: </span>
+          <span class="population">${country.population}</span>
+        </div>
+        <div class="my-2">
+          <span class="fw-bold sub-region-name">Sub Region: </span>
+          <span class="sub-region">${country.subregion}</span>
+        </div>
+        <div class="my-2">
+          <span class="fw-bold top-level-domain-name"
+            >Top Level Domain:
+          </span>
+          <span class="top-level-domain">${country.tld[0]}</span>
+        </div>
+        <div class="my-2">
+          <span class="fw-bold language-name">Languages: </span>
+          <span class="Language">${
+            element.languages === undefined
+              ? "Undefined"
+              : Object.values(element.languages)[0]
+          }</span>
+        </div>
+      </div>
+    </div>
+    <div class="border-countries row my-3">
+      <div class="col-lg-12 d-flex gap-3 flex-wrap align-items-center">
+        <span class="fw-bold me-4 border-country-names"
+          >Border Countries:
+        </span>
+        ${country.border}
+        <span class="border border-countries">Tanzania Uganda</span>
+        <span class="border border-countries"
+          >Tanzania Republic Kenya</span
+        >
+        <span class="border border-countries">Tanzania</span>
+        <span class="border border-countries">Tanzania</span>
+        <span class="border border-countries">Tanzania</span>
+        <span class="border border-countries">Tanzania</span>
+        <span class="border border-countries">Tanzania</span>
+        <span class="border border-countries">Tanzania</span>
+        
+      </div>
+    </div>
+  </div>
+    `;
+  };
+  const borderCountries = (border) => {
+    return `<span class="border border-countries">${border.border}</span>`;
+  };
 });
