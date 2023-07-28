@@ -6,7 +6,71 @@ window.addEventListener("DOMContentLoaded", (e) => {
   const section = document.createElement("section");
   const form = document.createElement("form");
   const cardsContainer = document.createElement("div");
-  const formContent = `
+  let sortedCountries = [];
+  let filteredList = undefined;
+  let searchInput = [];
+  let searchInputValue = "";
+  let filterInputValue = "";
+  // the url to the API
+  const url = "https://restcountries.com/v3.1/all";
+
+  // important functions
+  // function to load content on page load or even on pressing the back button
+  const loadContent = (
+    filterInputValue,
+    searchInputValue,
+    searchInput,
+    filteredList,
+    sortedCountries,
+    cardsContainer
+  ) => {
+    //  display filtered results on loading of the page
+    if (filterInputValue.length > 0 && searchInputValue.length <= 0) {
+      searchInput.value = "";
+      filteredList.value = filterInputValue;
+      newArray = filteredCountry(sortedCountries, filterInputValue);
+      cardsContainer.innerHTML = "";
+      arrayOperations(newArray);
+    }
+    // display the countries basing on the stored value of the search input
+
+    if (filteredList.value.includes("All Countries")) {
+      cardsContainer.innerHTML = "";
+      arrayOperations(sortedCountries);
+    } else if (
+      searchInputValue.length > 0 &&
+      filteredList.value === "placeholder"
+    ) {
+      filteredList.value = "placeholder";
+      searchInput.value = searchInputValue;
+      newArray = searchedCountry(sortedCountries, searchInputValue);
+      verifySearchedCountry();
+    }
+    // put coutnries in html at loading of the page
+    if (searchInput.value.length <= 0 && filteredList.value === "placeholder") {
+      arrayOperations(sortedCountries);
+    }
+  };
+
+  //   searching for a scpecific country in the countries api array
+  const searchedCountry = (arr, query) => {
+    return arr.filter((country) =>
+      country.name.common.toLowerCase().includes(query.toLowerCase())
+    );
+  };
+
+  // filtering the countries by region
+  const filteredCountry = (arr, query) => {
+    return arr.filter((country) =>
+      country.continents[0].toLowerCase().includes(query.toLowerCase())
+    );
+  };
+
+  // create the section to show countries
+  const sectionContent = () => {
+    // working on fetching data from the API to the html
+    // this is the form content
+    const formContent = `
         <input
           type="search"
           name="search"
@@ -24,6 +88,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
           <option value="placeholder" disabled="" selected="">
             Filter by Region
           </option>
+          <option value="All Countries">All Countries</option>
           <option value="africa">Africa</option>
           <option value="america">America</option>
           <option value="asia">Asia</option>
@@ -32,37 +97,31 @@ window.addEventListener("DOMContentLoaded", (e) => {
           
         </select>
 `;
-
-  // the url to the API
-  const url = "https://restcountries.com/v3.1/all";
-
-  // working on fetching data from the API to the html
-
-  // create the section to show countries
-
-  section.classList.add("cards");
-  body.appendChild(section);
-  form.classList.add(
-    "navbar",
-    "justify-content-between",
-    "gap-3",
-    "px-5",
-    "my-5"
-  );
-  section.appendChild(form);
-  form.innerHTML = formContent;
-  cardsContainer.classList.add(
-    "container-fluid",
-    "row",
-    "justify-content-center",
-    "cards-container"
-  );
-  section.appendChild(cardsContainer);
-  // getting the stored input on the localStorage after loading the it in the DOM
-  const searchInput = document.querySelector("#search");
-  const filteredList = document.querySelector("#continent");
-  let searchInputValue = localStorage.getItem("searchInput") || "";
-  let filterInputValue = localStorage.getItem("filterInput") || "";
+    section.classList.add("cards");
+    body.appendChild(section);
+    form.classList.add(
+      "navbar",
+      "justify-content-between",
+      "gap-3",
+      "px-5",
+      "my-5"
+    );
+    section.appendChild(form);
+    form.innerHTML = formContent;
+    cardsContainer.classList.add(
+      "container-fluid",
+      "row",
+      "justify-content-center",
+      "cards-container"
+    );
+    section.appendChild(cardsContainer);
+    // getting the stored input on the localStorage after loading it in the DOM
+    searchInput = document.querySelector("#search");
+    filteredList = document.querySelector("#continent");
+    searchInputValue = localStorage.getItem("searchInput") || "";
+    filterInputValue = localStorage.getItem("filterInput") || "";
+  };
+  sectionContent();
   // async function to get the
   async function getCountries() {
     try {
@@ -70,35 +129,13 @@ window.addEventListener("DOMContentLoaded", (e) => {
       const countries = await response.json();
 
       // sorting the countries using a function
-      const sortedCountries = countries.sort((a, b) => {
+      sortedCountries = countries.sort((a, b) => {
         const countryA = a.name.common.toLowerCase();
         const countryB = b.name.common.toLowerCase();
         if (countryA < countryB) return -1;
         if (countryA > countryB) return 1;
         return 0;
       });
-
-      // put coutnries in html at loading of the page
-      if (
-        searchInput.value.length <= 0 &&
-        filteredList.value === "placeholder"
-      ) {
-        arrayOperations(sortedCountries);
-      }
-
-      //   searching for a scpecific country in the countries api array
-      const searchedCountry = (arr, query) => {
-        return arr.filter((country) =>
-          country.name.common.toLowerCase().includes(query.toLowerCase())
-        );
-      };
-      // display the countries basing on the stored value of the search input
-      if (searchInputValue.length > 0 && filteredList.value === "placeholder") {
-        filteredList.value = "placeholder";
-        searchInput.value = searchInputValue;
-        newArray = searchedCountry(sortedCountries, searchInputValue);
-        verifySearchedCountry();
-      }
 
       searchInput.addEventListener("input", (e) => {
         e.preventDefault();
@@ -113,30 +150,34 @@ window.addEventListener("DOMContentLoaded", (e) => {
       });
       // end of search
 
-      // filtering the countries by region
-      const filteredCountry = (arr, query) => {
-        return arr.filter((country) =>
-          country.continents[0].toLowerCase().includes(query.toLowerCase())
-        );
-      };
-      //  display filtered results on loading of the page
-      if (filterInputValue.length > 0 && searchInputValue.length <= 0) {
-        searchInput.value = "";
-        filteredList.value = filterInputValue;
-        newArray = filteredCountry(sortedCountries, filterInputValue);
-        cardsContainer.innerHTML = "";
-        arrayOperations(newArray);
-      }
       filteredList.addEventListener("change", (e) => {
         e.preventDefault();
-        newArray = filteredCountry(sortedCountries, filteredList.value);
-        cardsContainer.innerHTML = "";
-        arrayOperations(newArray);
+
+        if (filteredList.value.includes("All Countries")) {
+          cardsContainer.innerHTML = "";
+          arrayOperations(sortedCountries);
+        } else {
+          newArray = filteredCountry(sortedCountries, filteredList.value);
+          cardsContainer.innerHTML = "";
+          arrayOperations(newArray);
+        }
+        // clear the input fields
         filterInputValue = localStorage.setItem(
           "filterInput",
           filteredList.value
         );
+        searchInputValue = localStorage.setItem("searchInput", "");
+        searchInput.value = "";
       });
+
+      loadContent(
+        filterInputValue,
+        searchInputValue,
+        searchInput,
+        filteredList,
+        sortedCountries,
+        cardsContainer
+      );
       console.log(sortedCountries);
     } catch (err) {
       document.write(err);
@@ -144,11 +185,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
   }
 
   // important functions
-  const arrayOperations = (value) => {
-    value.forEach((element) => {
-      showCountries(element);
-    });
-  };
+
   const showCountries = (data) => {
     // we shall need to create a new div element every after each iteration
     const card = document.createElement("div");
@@ -177,11 +214,34 @@ window.addEventListener("DOMContentLoaded", (e) => {
 
     // Adding an event listener to each card in the hmtl so as to load the country details
     card.addEventListener("click", (event) => {
+      event.preventDefault();
       const countryName = card.childNodes[3].children[0].textContent;
-      displayCOuntryDetails();
+      newArray = filterCountryByName(sortedCountries, countryName);
+      console.log(newArray);
+      newArray.forEach((country) => {
+        displayCOuntryDetails(country);
+        // adding the back button functionality
+        const backButton = document.querySelector(".back");
+        backButton.addEventListener("click", () => {
+          section.innerHTML = "";
+          sectionContent();
+          loadContent(
+            filterInputValue,
+            searchInputValue,
+            searchInput,
+            filteredList,
+            sortedCountries,
+            cardsContainer
+          );
+        });
+      });
     });
   };
-
+  const arrayOperations = (value) => {
+    value.forEach((element) => {
+      showCountries(element);
+    });
+  };
   const verifyCapital = (capital) => {
     if (capital.capital === undefined) {
       return "No capital";
@@ -205,16 +265,17 @@ window.addEventListener("DOMContentLoaded", (e) => {
    * =====this is where we start with the next part of displaying some of the contents of each card=====
    * ====================================================================================================
    */
-  const backButton = document.createElement("button");
-  const countryDetails = document.createElement("div");
 
   const displayCOuntryDetails = (country) => {
+    const backButton = document.createElement("button");
+    const countryDetails = document.createElement("div");
     // adding the neccessary content to the page after loading it
     section.innerHTML = "";
     section.classList.remove("cards");
     section.classList.add("card-display", "container-fluid");
     countryDetails.classList.add("row");
     backButton.textContent = "Back";
+    backButton.classList.add("back");
     section.appendChild(backButton);
     section.appendChild(countryDetails);
 
@@ -237,11 +298,6 @@ window.addEventListener("DOMContentLoaded", (e) => {
         <div class="my-2">
           <span class="fw-bold native-name">Native Name: </span>
           <span class="native">${
-            // if (element.name.nativeName === undefined) {
-            //   console.log("no name specified");
-            // } else {
-            //   console.log(Object.entries(element.name.nativeName)[0][1].common);
-            // }
             country.name.nativeName === undefined
               ? "undefined"
               : Object.entries(country.name.nativeName)[0][1].common
@@ -282,9 +338,9 @@ window.addEventListener("DOMContentLoaded", (e) => {
         <div class="my-2">
           <span class="fw-bold language-name">Languages: </span>
           <span class="Language">${
-            element.languages === undefined
+            country.languages === undefined
               ? "Undefined"
-              : Object.values(element.languages)[0]
+              : Object.values(country.languages)[0]
           }</span>
         </div>
       </div>
@@ -294,17 +350,8 @@ window.addEventListener("DOMContentLoaded", (e) => {
         <span class="fw-bold me-4 border-country-names"
           >Border Countries:
         </span>
-        ${country.border}
-        <span class="border border-countries">Tanzania Uganda</span>
-        <span class="border border-countries"
-          >Tanzania Republic Kenya</span
-        >
-        <span class="border border-countries">Tanzania</span>
-        <span class="border border-countries">Tanzania</span>
-        <span class="border border-countries">Tanzania</span>
-        <span class="border border-countries">Tanzania</span>
-        <span class="border border-countries">Tanzania</span>
-        <span class="border border-countries">Tanzania</span>
+        
+        ${borderCountries(country)}
         
       </div>
     </div>
@@ -312,6 +359,17 @@ window.addEventListener("DOMContentLoaded", (e) => {
     `;
   };
   const borderCountries = (border) => {
-    return `<span class="border border-countries">${border.border}</span>`;
+    if (border.borders === undefined) {
+      return '<span class="border border-countries">I do not have any borders</span>';
+    } else {
+      border.borders.forEach((border) => {
+        return '<span class="border border-countries">' + border + "</span>";
+      });
+    }
+  };
+  const filterCountryByName = (arr, query) => {
+    return arr.filter((country) =>
+      country.name.common.toLowerCase().includes(query.toLowerCase())
+    );
   };
 });
