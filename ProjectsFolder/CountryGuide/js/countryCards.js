@@ -121,6 +121,39 @@ window.addEventListener("DOMContentLoaded", (e) => {
     searchInputValue = localStorage.getItem("searchInput") || "";
     filterInputValue = localStorage.getItem("filterInput") || "";
   };
+
+  const operations = () => {
+    searchInput.addEventListener("input", (e) => {
+      e.preventDefault();
+
+      filterInputValue = localStorage.setItem("filterInput", "");
+      searchInputValue = localStorage.setItem("searchInput", searchInput.value);
+      newArray = searchedCountry(sortedCountries, searchInput.value);
+      verifySearchedCountry();
+    });
+    // end of search
+
+    filteredList.addEventListener("change", (e) => {
+      e.preventDefault();
+
+      if (filteredList.value.includes("All Countries")) {
+        cardsContainer.innerHTML = "";
+        arrayOperations(sortedCountries);
+      } else {
+        newArray = filteredCountry(sortedCountries, filteredList.value);
+        cardsContainer.innerHTML = "";
+        arrayOperations(newArray);
+      }
+      // clear the input fields
+      filterInputValue = localStorage.setItem(
+        "filterInput",
+        filteredList.value
+      );
+      searchInputValue = localStorage.setItem("searchInput", "");
+      searchInput.value = "";
+    });
+  };
+
   sectionContent();
   // async function to get the
   async function getCountries() {
@@ -136,40 +169,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
         if (countryA > countryB) return 1;
         return 0;
       });
-
-      searchInput.addEventListener("input", (e) => {
-        e.preventDefault();
-
-        filterInputValue = localStorage.setItem("filterInput", "");
-        searchInputValue = localStorage.setItem(
-          "searchInput",
-          searchInput.value
-        );
-        newArray = searchedCountry(sortedCountries, searchInput.value);
-        verifySearchedCountry();
-      });
-      // end of search
-
-      filteredList.addEventListener("change", (e) => {
-        e.preventDefault();
-
-        if (filteredList.value.includes("All Countries")) {
-          cardsContainer.innerHTML = "";
-          arrayOperations(sortedCountries);
-        } else {
-          newArray = filteredCountry(sortedCountries, filteredList.value);
-          cardsContainer.innerHTML = "";
-          arrayOperations(newArray);
-        }
-        // clear the input fields
-        filterInputValue = localStorage.setItem(
-          "filterInput",
-          filteredList.value
-        );
-        searchInputValue = localStorage.setItem("searchInput", "");
-        searchInput.value = "";
-      });
-
+      operations();
       loadContent(
         filterInputValue,
         searchInputValue,
@@ -233,8 +233,13 @@ window.addEventListener("DOMContentLoaded", (e) => {
             sortedCountries,
             cardsContainer
           );
+          operations();
+          console.log(searchInput.value);
         });
       });
+      // inputing the border countries on loading the page
+      const borderDiv = document.getElementById("border-div");
+      console.log(borderDiv.innerHTML);
     });
   };
   const arrayOperations = (value) => {
@@ -346,7 +351,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
       </div>
     </div>
     <div class="border-countries row my-3">
-      <div class="col-lg-12 d-flex gap-3 flex-wrap align-items-center">
+      <div class="col-lg-12 d-flex gap-3 flex-wrap align-items-center" id="border-div">
         <span class="fw-bold me-4 border-country-names"
           >Border Countries:
         </span>

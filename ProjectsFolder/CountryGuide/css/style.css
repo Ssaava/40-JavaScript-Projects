@@ -11980,7 +11980,7 @@ body .author {
 .cards .cards-container .card img {
   display: block;
   height: 12rem;
-  object-fit: cover;
+  object-fit: fill;
 }
 .cards .cards-container .card .card-body {
   padding: 0;
