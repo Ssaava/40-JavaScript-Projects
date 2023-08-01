@@ -11,10 +11,26 @@ window.addEventListener("DOMContentLoaded", (e) => {
   let searchInput = [];
   let searchInputValue = "";
   let filterInputValue = "";
+  let back = undefined;
   // the url to the API
   const url = "https://restcountries.com/v3.1/all";
 
   // important functions
+  const backButtonOperations = () => {
+    back.addEventListener("click", () => {
+      section.innerHTML = "";
+      sectionContent();
+      loadContent(
+        filterInputValue,
+        searchInputValue,
+        searchInput,
+        filteredList,
+        sortedCountries,
+        cardsContainer
+      );
+      operations();
+    });
+  };
   // function to load content on page load or even on pressing the back button
   const loadContent = (
     filterInputValue,
@@ -217,29 +233,13 @@ window.addEventListener("DOMContentLoaded", (e) => {
       event.preventDefault();
       const countryName = card.childNodes[3].children[0].textContent;
       newArray = filterCountryByName(sortedCountries, countryName);
-      console.log(newArray);
+
       newArray.forEach((country) => {
         displayCOuntryDetails(country);
         // adding the back button functionality
-        const backButton = document.querySelector(".back");
-        backButton.addEventListener("click", () => {
-          section.innerHTML = "";
-          sectionContent();
-          loadContent(
-            filterInputValue,
-            searchInputValue,
-            searchInput,
-            filteredList,
-            sortedCountries,
-            cardsContainer
-          );
-          operations();
-          console.log(searchInput.value);
-        });
+        back = document.querySelector(".back");
+        backButtonOperations();
       });
-      // inputing the border countries on loading the page
-      const borderDiv = document.getElementById("border-div");
-      console.log(borderDiv.innerHTML);
     });
   };
   const arrayOperations = (value) => {
@@ -351,30 +351,61 @@ window.addEventListener("DOMContentLoaded", (e) => {
       </div>
     </div>
     <div class="border-countries row my-3">
-      <div class="col-lg-12 d-flex gap-3 flex-wrap align-items-center" id="border-div">
+      <div class="col-lg-12 d-flex gap-3 flex-wrap align-items-center" id="border-countries">
         <span class="fw-bold me-4 border-country-names"
           >Border Countries:
         </span>
-        
-        ${borderCountries(country)}
-        
+              
       </div>
     </div>
   </div>
     `;
+    borderCountries(country);
   };
-  const borderCountries = (border) => {
-    if (border.borders === undefined) {
-      return '<span class="border border-countries">I do not have any borders</span>';
+  const borderCountries = (country) => {
+    // let us use a timeout funvtion to add the borders to the country details
+    const borderDiv = document.querySelector("#border-countries");
+
+    if (country.borders === undefined) {
+      // return '<span class="border border-countries">I do not have any borders</span>';
+      const span = document.createElement("span");
+      span.classList.add("border", "border-countries");
+      span.innerHTML = "I do not have any borders!";
+      borderDiv.appendChild(span);
     } else {
-      border.borders.forEach((border) => {
-        return '<span class="border border-countries">' + border + "</span>";
+      country.borders.forEach((border) => {
+        // return '<span class="border border-countries">' + border + "</span>";
+        const span = document.createElement("span");
+        span.classList.add("border", "border-countries");
+
+        // need to filter the countries before loading them in the html
+
+        newArray = filterCountryByAltName(sortedCountries, border);
+        newArray.forEach((border) => {
+          span.innerHTML = border.name.common;
+        });
+
+        borderDiv.appendChild(span);
+
+        // add a click event to each border now to return its content details
+        span.addEventListener("click", () => {
+          newArray = filterCountryByAltName(sortedCountries, border);
+          newArray.forEach((country) => {
+            displayCOuntryDetails(country);
+          });
+        });
       });
     }
   };
+
   const filterCountryByName = (arr, query) => {
     return arr.filter((country) =>
       country.name.common.toLowerCase().includes(query.toLowerCase())
+    );
+  };
+  const filterCountryByAltName = (arr, query) => {
+    return arr.filter((country) =>
+      country.cca3.toLowerCase().includes(query.toLowerCase())
     );
   };
 });
