@@ -10,23 +10,26 @@
   form {
     #search {
       padding-right: 10%;
-      font-size: m.rem(14);
       @include mix.smallScreen(small) {
         width: 100%;
       }
     }
     #search,
     select {
-      padding-top: m.rem(10);
-      padding-bottom: m.rem(10);
+      height: m.rem(35);
+      font-size: m.rem(14);
+      padding-top: m.rem(5);
+      padding-bottom: m.rem(5);
       outline: none;
       box-shadow: var(--Button_Shadow_Light);
       background-color: var(--Light_Mode_Elements);
       color: var(--Light_Mode_Text);
     }
     select {
-      width: m.rem(150);
       border: none;
+      @include mix.smallScreen(small) {
+        margin-top: m.rem(25);
+      }
     }
   }
   // designing the cards
@@ -47,6 +50,9 @@
         display: block;
         height: m.rem(192);
         object-fit: fill;
+        color: var(--Light_Mode_Text);
+        font-size: m.rem(12);
+        font-weight: lighter;
       }
       .card-body {
         padding: 0;

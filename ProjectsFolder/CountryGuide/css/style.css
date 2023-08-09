@@ -11942,7 +11942,6 @@ body .author {
 
 .cards form #search {
   padding-right: 10%;
-  font-size: 0.875rem;
 }
 @media (max-width: 32.8125rem) {
   .cards form #search {
@@ -11951,16 +11950,22 @@ body .author {
 }
 .cards form #search,
 .cards form select {
-  padding-top: 0.625rem;
-  padding-bottom: 0.625rem;
+  height: 2.1875rem;
+  font-size: 0.875rem;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
   outline: none;
   box-shadow: var(--Button_Shadow_Light);
   background-color: var(--Light_Mode_Elements);
   color: var(--Light_Mode_Text);
 }
 .cards form select {
-  width: 9.375rem;
   border: none;
+}
+@media (max-width: 32.8125rem) {
+  .cards form select {
+    margin-top: 1.5625rem;
+  }
 }
 .cards .cards-container {
   gap: 3rem;
@@ -11981,6 +11986,9 @@ body .author {
   display: block;
   height: 12rem;
   object-fit: fill;
+  color: var(--Light_Mode_Text);
+  font-size: 0.75rem;
+  font-weight: lighter;
 }
 .cards .cards-container .card .card-body {
   padding: 0;
@@ -12025,6 +12033,9 @@ body .author {
 }
 .card-display .content span {
   font-weight: 200;
+}
+.card-display .content h1 {
+  font-size: 1.875rem;
 }
 .card-display .content .border-countries .border {
   padding: 0.125rem 0.3125rem;

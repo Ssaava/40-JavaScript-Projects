@@ -2,22 +2,29 @@
 
 # Table of Contents
 
-[Introduction](#Introduction)
+[Introduction](#introduction)
 
-- [Description](#Description)
-- [Features](#Features)
+- [Description](#description)
+- [Features Of The Website](#features-of-the-website)
 
-[REST Countries API](#API)
+[REST Countries API](#rest-countries-aPI)
 
 - [Overview](#Overview)
-- [Features](#Features)
+- [Features of The API](#features-of-the-api)
 
-[Getting Started](#Getting Started)
+[Getting Started](#getting-started)
+
+- [Steps to Clone This Project](#steps-to-clone-this-project)
 
 - [Work with the website](#Steps)
-- [Functionality](Functionality)
+- [Featues and Functionality of the Website](#featues-and-functionality-of-the-website)
 
-[Conclusion](#Conclusion)
+  [My Process](#my-process)
+
+- [Built with](#built-with)
+- [Useful resources](#useful-resources)
+  [Author](#author)
+  [Conclusion](#conclusion)
 
 ## Introduction
 
@@ -25,7 +32,7 @@
 
 The Country Guide website is a comprehensive platform designed to help individuals search for specific country information and retrieve essential details, including the country's general information and its flag. Users can easily search for their desired country using the search bar, and the website will display the relevant information on the page.
 
-**Features**
+## Features Of The Website
 
 - Country Information: The website provides users with detailed information about a specific country, including its name, population, capital, languages spoken, currency, timezones, and regional blocs. Users can gain a comprehensive understanding of the country's attributes.
 
@@ -41,7 +48,7 @@ The Country Guide website is a comprehensive platform designed to help individua
 
 With the combined power of **HTML, CSS, JavaScript**, and libraries like **Bootstrap**, the Country Guide website provides users with an intuitive and interactive platform to search for and explore detailed information about countries worldwide.
 
-# API
+# Rest Countries API
 
 ### Overview
 
@@ -49,7 +56,7 @@ The REST Countries API is a powerful resource that enables us to retrieve compre
 
 API Documentation: [REST Countries API Documentation](https://restcountries.com/v3.1/all)
 
-**Features**
+### Features of The API
 
 - Country Information: The API provides extensive information about countries, including details such as country codes, names, capitals, currencies, languages spoken, timezones, regional blocs, and much more. This wealth of data allows us to present a holistic view of each country on our website.
 
@@ -61,7 +68,7 @@ By leveraging the **REST Countries API**, we can access a vast repository of cou
 
 # Getting Started
 
-## Steps
+## Steps to Clone This Project
 
 - Clone this repository by running the following command in your terminal:
 
@@ -75,9 +82,7 @@ Please ensure that you have Git installed on your local machine before executing
 
 By following these steps, you will be able to access the Country Guide website and explore its features in your browser.
 
-## Functionality
-
-## Detail the features and functionality of the website:
+## Featues and Functionality of the Website
 
 - Home Page:
   Provide a search input where users can enter a country name or code.
@@ -99,24 +104,24 @@ Optionally, showcase additional data like borders, neighboring countries, and re
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
+- CSS
+- Bootstrap
+- Sass
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
+- Node Modules
+- fontawesome icons
 - [Styled Components](https://styled-components.com/) - For styles
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+- [Link To Finished Project](https://heuristic-johnson-cf1cc8.netlify.app/) - This helped me as a reference to what I am supposed to be doing as my final project.
 - [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
+- Website - [Ssaava Emmanuel](https://www.your-site.com)
 - Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Twitter - [@ssava-Ema⚡](https://www.twitter.com/ssava-Ema)
 
 ## Acknowledgments
 

@@ -296,7 +296,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
   </div>
   <div class="content col-lg-6 col-md-12 text-start">
     <div class="row my-3">
-      <div class="col-lg-12 fw-bold country-name">${country.name.common}</div>
+      <h1 class="col-lg-12 fw-bold  country-name">${country.name.common}</h1>
     </div>
     <div class="row my-0">
       <div class="col-lg-6 col-md-6 col-sm-6">
