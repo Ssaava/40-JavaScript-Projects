@@ -271,11 +271,26 @@ window.addEventListener("DOMContentLoaded", (e) => {
    * ====================================================================================================
    */
 
+  /**
+   *
+   * we need to write code that will leave the back button in the page when the border country is placed
+   * we shall need a separate div to handle the country details then
+   * we shall also need to refactor the code then
+   * lets now think about the logic
+   * we shall use the button to trap the move
+   */
+
   const displayCOuntryDetails = (country) => {
     const backButton = document.createElement("button");
     const countryDetails = document.createElement("div");
     // adding the neccessary content to the page after loading it
+    console.log(document.querySelector(".back") + " does not here");
+
+    console.log(
+      `before removing the section content ${section.innerHTML === ""}`
+    );
     section.innerHTML = "";
+    console.log(`after removing section content ${section.innerHTML === ""}`);
     section.classList.remove("cards");
     section.classList.add("card-display", "container-fluid");
     countryDetails.classList.add("row");
@@ -283,7 +298,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
     backButton.classList.add("back");
     section.appendChild(backButton);
     section.appendChild(countryDetails);
-
+    console.log(document.querySelector(".back").innerHTML + " Exists now");
     // loading the country details in the html
 
     countryDetails.innerHTML = `
@@ -303,9 +318,10 @@ window.addEventListener("DOMContentLoaded", (e) => {
         <div class="my-2">
           <span class="fw-bold native-name">Native Name: </span>
           <span class="native">${
-            country.name.nativeName === undefined
-              ? "undefined"
-              : Object.entries(country.name.nativeName)[0][1].common
+            // country.name.nativeName === undefined
+            //   ? "undefined"
+            //   : Object.entries(country.name.nativeName)[0][1].common
+            getNativeName(country)
           }</span>
         </div>
         <div class="my-2">
@@ -321,7 +337,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
           <span class="currency">${
             country.currencies === undefined
               ? "Undefined"
-              : Object.entries(country.currencies)[0][1].name
+              : Object.values(country.currencies)[0].name
           }</span>
         </div>
       </div>
@@ -342,11 +358,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
         </div>
         <div class="my-2">
           <span class="fw-bold language-name">Languages: </span>
-          <span class="Language">${
-            country.languages === undefined
-              ? "Undefined"
-              : Object.values(country.languages)[0]
-          }</span>
+          <span class="Language">${getLanguages(country)}</span>
         </div>
       </div>
     </div>
@@ -397,7 +409,29 @@ window.addEventListener("DOMContentLoaded", (e) => {
       });
     }
   };
+  // get the languages
 
+  const getLanguages = (country) => {
+    let languages = "";
+    const languagesArray = Object.values(country.languages);
+    languagesArray.forEach((language) => {
+      languages = language + ", " + languages;
+    });
+    if (languages === "") {
+      return "No languages Spoken";
+    }
+    // remove the last comma and whitespace in the languages array then return the results
+    return languages.slice(0, length - 2);
+  };
+  // get the native name of the country
+  const getNativeName = (country) => {
+    const nativeNameArray = Object.values(country.name.nativeName);
+    if (nativeNameArray === undefined) {
+      return "There is no native name";
+    }
+    return nativeNameArray[nativeNameArray.length - 1].common;
+  };
+  // filter the country by name
   const filterCountryByName = (arr, query) => {
     return arr.filter((country) =>
       country.name.common.toLowerCase().includes(query.toLowerCase())
