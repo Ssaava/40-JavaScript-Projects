@@ -13,3 +13,11 @@ resources to be used for the project
 <i class="fa-brands fa-github"></i>  
 <i class="fa-brands fa-twitter"></i>
 <i class="fa-brands fa-linkedin"></i>
+
+### colors
+
+- --background-color: #151515;
+- --heading-color: #fff;
+- --text-color: #cbcbcb;
+- --border-color: #56dfa3;
+- --footer-bacgkround: #242424;
