@@ -1,2 +1,1 @@
-import "./sass/index.scss";
-document.querySelector("#app").innerHTML = ``;
+// import "./sass/index.scss";
