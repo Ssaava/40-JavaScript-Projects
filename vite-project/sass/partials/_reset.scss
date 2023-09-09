@@ -11,8 +11,19 @@
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
+  box-sizing: border-box;
 }
-
+// reset everything our own reset
+/**
+* our own reset for everything
+*/
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
 /* Sections
      ========================================================================== */
 
@@ -20,9 +31,9 @@ html {
    * Remove the margin in all browsers.
    */
 
-body {
-  margin: 0;
-}
+// body {
+//   margin: 0;
+// }
 
 /**
    * Render the `main` element consistently in IE.
@@ -75,6 +86,7 @@ pre {
 
 a {
   background-color: transparent;
+  color: grey;
 }
 
 /**
@@ -331,13 +343,6 @@ summary {
   display: list-item;
 }
 
-/* Misc
-     ========================================================================== */
-
-/**
-   * Add the correct display in IE 10+.
-   */
-
 template {
   display: none;
 }
@@ -348,4 +353,14 @@ template {
 
 [hidden] {
   display: none;
+}
+
+/* Misc
+     ========================================================================== */
+
+/**
+   * Reset all list items
+   */
+li {
+  list-style: none;
 }
